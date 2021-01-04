@@ -1,0 +1,39 @@
+{
+    "name": "georgpreissl/contao-grix-bundle",
+    "description": "A Sitebuilder-Bundle for Contao",
+    "keywords": ["contao","grid","sitebuilder"],
+    "type": "contao-bundle",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Georg Preissl",
+            "email": "g.preissl@heidlmair.com",
+            "homepage": "https://www.georg-preissl.at",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/georgpreissl/contao-grix-bundle/issues",
+        "source": "https://github.com/georgpreissl/contao-grix-bundle"
+    },
+    "require": {
+        "contao/core-bundle": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeorgPreissl\\ContaoGrixBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config",
+            "src/Resources/contao/dca",
+            "src/Resources/contao/languages",
+            "src/Resources/contao/templates"
+        ]
+    },
+    "extra": {
+        "contao-manager-plugin": "GeorgPreissl\\ContaoGrixBundle\\ContaoManager\\Plugin"
+    }
+}
