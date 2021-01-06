@@ -145,7 +145,8 @@ class GrixBe extends \BackendModule
 
 
 		// get all the css-classes of this article
-		$objClasses = GrixCssModel::findAll();
+		// $objClasses = GrixCssModel::findAll();
+		$objClasses = null;
 
 		// store the css-classes in an array
 		$arrClasses = array();
@@ -164,10 +165,13 @@ class GrixBe extends \BackendModule
 
 
 		// get the grixJs of this article
-		$result = $this->Database->prepare("SELECT grixJs FROM tl_article WHERE id=?")->execute($id);
+		$result = $this->Database->prepare("SELECT grixJs, title, pid FROM tl_article WHERE id=?")->execute($id);
 		$strData = $result->grixJs ? : '';
 		
-		 
+		// get the title of this article
+		$this->Template->articleTitle = $result->title;		 
+		$result = $this->Database->prepare("SELECT title FROM tl_page WHERE id=?")->execute($result->$pid);
+		$this->Template->pageTitle = $result->title;		 
 
 
 		$this->Template->id = $id;

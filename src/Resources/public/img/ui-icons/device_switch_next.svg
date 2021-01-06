@@ -1,10 +1,1 @@
-<svg version="1.1" id="Ebene_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="8.727px"
-	 height="14.574px" viewBox="3.637 0.713 8.727 14.574" enable-background="new 3.637 0.713 8.727 14.574" xml:space="preserve">
-
-	<g >
-		<polygon fill="#848484" points="11.537,8.851 12.364,8.031 12.36,8.027 12.363,8.025 11.767,7.43 10.955,6.611 10.952,6.615 
-			5.051,0.713 3.637,2.127 9.532,8.022 3.639,13.867 5.047,15.287 10.946,9.438 10.948,9.439" />
-	</g>
-
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>

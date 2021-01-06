@@ -1,10 +1,14 @@
-
+<?php
+// dump($this);
+?>
 <div class="grix">
+	<div class="grix__header">
+		<h1 class="grix__location">Den Artikel '<span class="grix__location-item"><?= $this->articleTitle ?></span>' der Seite '<span class="grix__location-item"><?= $this->articleTitle ?></span>' mit Grix bearbeiten</h1>
+		<div id="tl_buttons">
+			<a href="<?= $this->referer ?>" class="header_back" title="<?= $this->backBTTitle ?>"><?= $this->button ?></a>
+		</div> 
 
-
-	<div id="tl_buttons">
-		<a href="<?= $this->referer ?>" class="header_back" title="<?= $this->backBTTitle ?>"><?= $this->button ?></a>
-	</div> 
+	</div>
 
 	
 	<div class="grix_loader">
@@ -19,7 +23,7 @@
 					<?php echo file_get_contents("bundles/georgpreisslcontaogrix/img/ui-icons/preview.svg"); ?>
 				</button>
 			</div>
-			<!-- <div class="buttons_label">sneak</div> -->
+			<div class="buttons_label"><?= $GLOBALS['TL_LANG']['tl_grix']['bt_label_preview'] ?></div>
 		</div>
 
 		<div class="button_wrap button_devices_wrap">
@@ -133,6 +137,7 @@
 			<button class="grix_button grix_duplicate" title="<?= $GLOBALS['TL_LANG']['tl_grix']['bt_duplicate'] ?>" >
 				<?php echo file_get_contents("bundles/georgpreisslcontaogrix/img/ui-icons/duplicate.svg"); ?>
 			</button>
+			<div class="buttons_label"><?= $GLOBALS['TL_LANG']['tl_grix']['bt_label_duplicate'] ?></div>
 		</div>
  	
 	<!--
@@ -147,6 +152,7 @@
 			<button class="grix_button grix_deselect" title="<?= $GLOBALS['TL_LANG']['tl_grix']['bt_deselect'] ?>" >
 				<?php echo file_get_contents("bundles/georgpreisslcontaogrix/img/ui-icons/deselect.svg"); ?>
 			</button>
+			<div class="buttons_label"><?= $GLOBALS['TL_LANG']['tl_grix']['bt_label_deselect'] ?></div>
 		</div>
 	<!--
 		<div class="button_wrap button_back_wrap ">
@@ -366,13 +372,14 @@
 
 			$grixMenu = $('.grix_menu');
 			var nrGxMnTop = $grixMenu.offset().top;
+			var nrGxMnSwitch = nrGxMnTop - $('#header').height();
 			var nrGxMnLeft = $grixMenu.offset().left;
-			var nrGxMnWidth = $grixMenu.width();
+			var nrGxMnWidth = $grixMenu.outerWidth();
 
 			window.addEvent('scroll', function(){
 				var st = $(window).scrollTop();
 				
-			    if(st > nrGxMnTop){
+			    if(st > nrGxMnSwitch){
 					$grixMenu.addClass('fixed');
 					$grixMenu.css({
 						left: nrGxMnLeft,

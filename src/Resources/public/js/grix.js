@@ -8,7 +8,7 @@
 var xi = obCfg.xi;
 //xi.m();
 
-		var debug = true;
+		var debug = false;
 		var boLbActive = false;
 		var obData = obCfg.data;
 		var arCEsUsed = obCfg.CEsUsed;

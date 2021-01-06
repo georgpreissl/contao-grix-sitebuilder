@@ -1,28 +1,80 @@
-# Grix – ein Bootstrap-Sitebuilder für Contao 3.5
+# Grix – ein Bootstrap-Sitebuilder für Contao
 
 
 Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalten in Contao.
 
 
-### Vorteile
+## Vorteile
 * Inhaltselemente werden auch im Backend in der Grid-Ansicht angezeigt
-* Bootstrap-Eigenschaften einer Spalte können mit wenigen Klicks geändert werden
-* Schneller Wechsel zwischen den Responsive-Breakpoints im Backend
+* Inhaltselemente können per Drag&Drop in Spalten und Reihen arrangiert werden
+* Die Bootstrap-Eigenschaften einer Spalte können mit wenigen Klicks geändert werden
+* Schneller Vorschau-Wechsel zwischen den Responsive-Breakpoints im Backend
 * Reihen und Spalten können einfach ineinander verschachtelt werden
-* CSS-Klassen können mit einem Klick den Spalten und Reihen zugewiesen werden
-* Inhaltselemente können aus anderen Artikeln importiert werden
+* Bereits erstellte Inhaltselemente können in eine Spalte "importiert" werden
 
 
-Installation:
-https://youtu.be/RlQWJwvOen0
+## Verwendung
+Um den Grix-Sitebuilder bei der Bearbeitung eines Artikels zu verwenden, muss in den Artikel-Einstellungen die Checkbox "Grix aktivieren" angeklickt werden. Wurde das gemacht, ist das Grix-Bearbeitungsicon in der Artikel-Listenansicht aktiv (es ist nicht mehr ausgegraut). Der Artikel kann nun mit Grix bearbeitet werden. 
 
-Verwendung:
-https://youtu.be/0yrzWbtfiRo
+Wird Grix in den in den Artikel-Einstellungen wieder deaktiviert, werden die Inhaltselemente des Artikels wie zuvor ausgegeben.
 
-Erstellung verschachtelter Reihen und Spalten:
-https://youtu.be/jc-GIHvdaoo
+Um die mit dem Bundle mitgelieferte Bootstrap-CSS-Datei zu verwenden, muss in den Layouteinstellungen die Checkbox "Grix CSS-Dateien laden" aktiviert werden.
 
 
- 
+## Den Grid bearbeiten
+
+### Eigenschaften von Reihen, Spalten und Inhaltselementen ändern
+Um die Eigenschaften von Reihen, Spalten und Inhaltselementen zu ändern, muss das Element zuerst ausgewählt werden. Klicke dazu in den leeren Bereich des jeweiligen Elements. Ist das Element ausgewählt, erscheint es mit einer orangen Umrandung. Wird beim Auswählen die Taste "Shift" gedrückt, können auch mehrere Elemente gleichzeitig ausgewählt bzw. bearbeitet werden.
+Wurde die Auswahl gemacht, können im Header-Menü die Eigenschaften der Auswahl verändert werden. 
+Durch einen Klick auf das Label des Buttons, kann eine definierte Eigenschaft auch wieder aufgehoben werden.
+Durch einen Klick auf "Kopieren" kann das ausgewählte Element (mit all seinen Inhalten) auch kopiert werden. Mit einem Klick auf den Button "Aufheben" wird die Auswahl wieder aufgehoben.
+
+### Eigenschaften einer Reihe ändern
+Wurde eine Reihe (oder mehrere) ausgewählt, kann der Abstand unterhalb (margin-bottom in rem) erhöht oder verringert werden.
+Die Eigenschaften "Breite", "Versatz", "Push" und "Pull" sind für Reihen nicht verfügbar – diese Buttons sind daher ausgegraut.
+
+### Eigenschaften einer Spalte ändern
+Wurde eine Spalte (oder mehrere) ausgewählt, können  mit den Plus/Minus-Buttons die Eigenschaften "Breite", "Versatz", "Push" und "Pull" geändert werden. Zusätzlich kann die Spalte mit all ihren Inhaltselementen kopiert werden. Der Abstand unterhalb kann bei einer Spalte nicht verändert werden.
+
+### Eigenschaften eines Inhaltselements ändern
+Wurde ein Inhaltselement (oder mehrere) ausgewählt, kann der Abstand unterhalb (margin-bottom in rem) erhöht oder verringert werden.
+Die Eigenschaften "Breite", "Versatz", "Push" und "Pull" sind für Inhaltselemente nicht verfügbar – diese Buttons sind daher ausgegraut.
+
+### Ausgabe-Breiten (Breakpoints) berücksichtigen
+Die Änderungen an Reihen, Spalten und Inhaltselementen gelten für die unter "Ausgabegerät" aktivierte Ausgabe-Breite. 
+Vier Ausgabe-Breiten (Breakpoints) stehen zur Verfügung:
+* Extra small devices (< 768px)
+* Small devices (≥ 768px)
+* Medium devices (≥ 992px)
+* Large devices (≥ 1200px)
+Werte werden dabei an höhere Ausgabe-Breiten "vererbt". D.h. eine Änderung für "Extra small devices" gilt auch für die höheren Ausgabe-Breiten. Es sei denn bei diesen Ausgabe-Breiten werden eigene Werte definiert.
 
 
+## Die Bearbeitungs-Menüs 
+Reihen, Spalten und Inhaltselementen enthalten jeweils Bearbeitungs-Menüs. Diese erscheinen unterhalb des Elements und sind grau hinterlegt. Die Funktionen in diesen Menüs sind je nach Element verschieden. 
+
+### Das Reihen-Bearbeitungs-Menü
+Das Reihen-Bearbeitungs-Menü enthält folgende Funktionen (von links nach rechts):
+* Der Reihe eine weitere Spalte hinzufügen
+* Eine weitere Reihe unterhalb der jeweiligen Reihe einfügen
+* Vordefinierte Spaltenkonfiguration für die Ausgabe-Breiten in einer Übersicht definieren
+* Vordefinierte Spaltenkonfiguration anwenden
+* Die Reihe nach oben oder unten verschieben
+* Die Reihe entfernen
+
+### Das Spalten-Bearbeitungs-Menü
+Das Spalten-Bearbeitungs-Menü enthält folgende Funktionen (von links nach rechts):
+* Innerhalb der Spalte eine Reihe einfügen (Reihen und Spalten können beliebig verschachtelt werden)
+* Ein neues Inhaltselement in die Spalte einfügen
+* Ein bereits in diesem Artikel erstelltes Inhaltselement in die Spalte importieren
+* Die Spalte entfernen
+
+### Das Inhaltselement-Bearbeitungs-Menü
+Das Inhaltselement-Bearbeitungs-Menü enthält folgende Funktionen (von links nach rechts):
+* Das Inhaltselement bearbeiten
+* Ein neues Inhaltselement unterhalb des jew. Inhaltselement einfügen
+* Das Inhaltselement entfernen (es wird nur aus dem Grid entfernt, nicht tatsächlich gelöscht)
+
+
+## Vorschau aktivieren
+Durch einen Klick auf den Button "Vorschau" werden die UI-Elemente des Grids ausgeblendet. Zusätzlich werden die Inhaltselmente ohne Maximal-Breite angezeigt. So bekommt man einen besseren Eindruck wie der Grid im Frontend aussehen wird. Ein Arrangieren mit Drag-and-Drop ist auch im Vorschau-Modus möglich.

@@ -17,6 +17,10 @@ $GLOBALS['TL_LANG']['tl_grix']['deviceInfoSm'] = '≥ 768px (Small devices)';
 $GLOBALS['TL_LANG']['tl_grix']['deviceInfoMd'] = '≥ 992px (Medium devices)';
 $GLOBALS['TL_LANG']['tl_grix']['deviceInfoLg'] = '≥ 1200px (Large devices)';
 
+$GLOBALS['TL_LANG']['tl_grix']['bt_label_preview'] = 'Vorschau';
+$GLOBALS['TL_LANG']['tl_grix']['bt_label_duplicate'] = 'Kopieren';
+$GLOBALS['TL_LANG']['tl_grix']['bt_label_deselect'] = 'Aufheben';
+
 $GLOBALS['TL_LANG']['tl_grix']['bt_label_devices'] = 'Ausgabegerät';
 
 $GLOBALS['TL_LANG']['tl_grix']['bt_label_width'] = 'Breite';
@@ -39,7 +43,7 @@ $GLOBALS['TL_LANG']['tl_grix']['bt_pull_minus'] = 'Pull-Wert der ausgewählten E
 $GLOBALS['TL_LANG']['tl_grix']['bt_pull_plus'] = 'Pull-Wert der ausgewählten Elemente erhöhen';
 $GLOBALS['TL_LANG']['tl_grix']['bt_pull_remove'] = 'Pull-Wert der ausgewählten Elemente nicht definieren';
 
-$GLOBALS['TL_LANG']['tl_grix']['bt_label_margin'] = 'Abstand';
+$GLOBALS['TL_LANG']['tl_grix']['bt_label_margin'] = 'Abstand unterhalb';
 $GLOBALS['TL_LANG']['tl_grix']['bt_margin_minus'] = 'Unteren Abstand der ausgewählten Elemente verringern';
 $GLOBALS['TL_LANG']['tl_grix']['bt_margin_plus'] = 'Unteren Abstand der ausgewählten Elemente erhöhen';
 $GLOBALS['TL_LANG']['tl_grix']['bt_margin_remove'] = 'Unteren Abstand der ausgewählten Elemente nicht definieren';
