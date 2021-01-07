@@ -38,14 +38,8 @@ class gp_grix extends tl_content
 				$GLOBALS['TL_JAVASCRIPT'] = array();
 			}
 
-
-			// get the jquery src, e.g.: assets/jquery/core/1.11.3/jquery.min.js";
-			$strJQuerySrc = 'assets/jquery/js/' . reset((scandir(TL_ROOT . '/assets/jquery/js', 1))) . '/jquery.min.js';
-
-
 		    // add the jquery-library at the beginning of TL_JAVASCRIPT
-			array_unshift($GLOBALS['TL_JAVASCRIPT'], $strJQuerySrc);
-
+			array_unshift($GLOBALS['TL_JAVASCRIPT'], 'assets/jquery/js/jquery.min.js');
 
 		    // add "jQuery.noConflict()" after the jquery-library
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/jquery.noconflict.js';
@@ -53,8 +47,6 @@ class gp_grix extends tl_content
 			// add the js for ce creating
     		$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixElement.js';
     		$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixCE.js';
-
-
 			
     	};
 

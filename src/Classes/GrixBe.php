@@ -35,6 +35,7 @@ class GrixBe extends \BackendModule
 
 		if (TL_MODE=='BE')
 		{
+
 			if (!is_array($GLOBALS['TL_JAVASCRIPT']))
 			{
 				$GLOBALS['TL_JAVASCRIPT'] = array();
