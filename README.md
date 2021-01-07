@@ -12,6 +12,9 @@ Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalte
 * Reihen und Spalten können einfach ineinander verschachtelt werden
 * Bereits erstellte Inhaltselemente können in eine Spalte "importiert" werden
 
+![screen1](https://user-images.githubusercontent.com/4385048/103889062-1336f100-50e6-11eb-8844-925954f57a4e.png)
+![screen2](https://user-images.githubusercontent.com/4385048/103889097-23e76700-50e6-11eb-9dbd-29688838b3d2.png)
+
 
 ## Verwendung
 Um den Grix-Sitebuilder bei der Bearbeitung eines Artikels zu verwenden, muss in den Artikel-Einstellungen die Checkbox "Grix aktivieren" angeklickt werden. Wurde das gemacht, ist das Grix-Bearbeitungsicon in der Artikel-Listenansicht aktiv (es ist nicht mehr ausgegraut). Der Artikel kann nun mit Grix bearbeitet werden. 
@@ -39,6 +42,9 @@ Wurde eine Spalte (oder mehrere) ausgewählt, können  mit den Plus/Minus-Button
 ### Eigenschaften eines Inhaltselements ändern
 Wurde ein Inhaltselement (oder mehrere) ausgewählt, kann der Abstand unterhalb (margin-bottom in rem) erhöht oder verringert werden.
 Die Eigenschaften "Breite", "Versatz", "Push" und "Pull" sind für Inhaltselemente nicht verfügbar – diese Buttons sind daher ausgegraut.
+
+### Inhaltselemente per Drag&Drop arrangieren
+Inhaltselemente können per Drag&Drop neu platziert werden. Dazu das Inhaltselement mit gedrückter Maustaste an den Zielort verschieben. Ein grüner Platzhalterrahmen zeigt an wenn das Inhaltselement eingefügt werden kann.
 
 ### Ausgabe-Breiten (Breakpoints) berücksichtigen
 Die Änderungen an Reihen, Spalten und Inhaltselementen gelten für die unter "Ausgabegerät" aktivierte Ausgabe-Breite. 
