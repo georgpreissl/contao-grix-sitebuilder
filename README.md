@@ -47,6 +47,7 @@ Vier Ausgabe-Breiten (Breakpoints) stehen zur Verfügung:
 * Small devices (≥ 768px)
 * Medium devices (≥ 992px)
 * Large devices (≥ 1200px)
+
 Werte werden dabei an höhere Ausgabe-Breiten "vererbt". D.h. eine Änderung für "Extra small devices" gilt auch für die höheren Ausgabe-Breiten. Es sei denn bei diesen Ausgabe-Breiten werden eigene Werte definiert.
 
 

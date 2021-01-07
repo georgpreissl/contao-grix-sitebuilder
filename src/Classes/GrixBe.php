@@ -42,11 +42,8 @@ class GrixBe extends \BackendModule
 		    // add "jQuery.noConflict()" at the beginning of TL_JAVASCRIPT
 			array_unshift($GLOBALS['TL_JAVASCRIPT'], 'bundles/georgpreisslcontaogrix/js/jquery.noconflict.js');
 
-			// get the jquery src, e.g.: assets/jquery/core/1.11.3/jquery.min.js";
-			// $strJQuerySrc = 'assets/jquery/core/' . reset((scandir(TL_ROOT . '/assets/jquery/core', 1))) . '/jquery.min.js';
-
 		    // add the jquery-library at the beginning of TL_JAVASCRIPT
-			// array_unshift($GLOBALS['TL_JAVASCRIPT'], $strJQuerySrc);
+			array_unshift($GLOBALS['TL_JAVASCRIPT'], 'assets/jquery/js/jquery.min.js');
 
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/jquery-ui-1.12.1/jquery-ui.min.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixElement.js';
