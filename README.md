@@ -13,8 +13,10 @@ Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalte
 * Bereits erstellte Inhaltselemente können in eine Spalte "importiert" werden
 
 ![screen1](https://user-images.githubusercontent.com/4385048/103889062-1336f100-50e6-11eb-8844-925954f57a4e.png)
-![screen2](https://user-images.githubusercontent.com/4385048/103889097-23e76700-50e6-11eb-9dbd-29688838b3d2.png)
+*Grix im Bearbeitungs-Modus*
 
+![screen2](https://user-images.githubusercontent.com/4385048/103889097-23e76700-50e6-11eb-9dbd-29688838b3d2.png)
+*Grix im Vorschau-Modus*
 
 ## Verwendung
 Um den Grix-Sitebuilder bei der Bearbeitung eines Artikels zu verwenden, muss in den Artikel-Einstellungen die Checkbox "Grix aktivieren" angeklickt werden. Wurde das gemacht, ist das Grix-Bearbeitungsicon in der Artikel-Listenansicht aktiv (es ist nicht mehr ausgegraut). Der Artikel kann nun mit Grix bearbeitet werden. 
@@ -28,9 +30,8 @@ Um die mit dem Bundle mitgelieferte Bootstrap-CSS-Datei zu verwenden, muss in de
 
 ### Eigenschaften von Reihen, Spalten und Inhaltselementen ändern
 Um die Eigenschaften von Reihen, Spalten und Inhaltselementen zu ändern, muss das Element zuerst ausgewählt werden. Klicke dazu in den leeren Bereich des jeweiligen Elements. Ist das Element ausgewählt, erscheint es mit einer orangen Umrandung. Wird beim Auswählen die Taste "Shift" gedrückt, können auch mehrere Elemente gleichzeitig ausgewählt bzw. bearbeitet werden.
-Wurde die Auswahl gemacht, können im Header-Menü die Eigenschaften der Auswahl verändert werden. 
-Durch einen Klick auf das Label des Buttons, kann eine definierte Eigenschaft auch wieder aufgehoben werden.
-Durch einen Klick auf "Kopieren" kann das ausgewählte Element (mit all seinen Inhalten) auch kopiert werden. Mit einem Klick auf den Button "Aufheben" wird die Auswahl wieder aufgehoben.
+
+Wurde die Auswahl gemacht, können im Header-Menü die Eigenschaften der Auswahl verändert werden. Durch einen Klick auf das Label des Buttons, kann eine definierte Eigenschaft auch wieder aufgehoben werden. Durch einen Klick auf "Kopieren" kann das ausgewählte Element (mit all seinen Inhalten) auch kopiert werden. Mit einem Klick auf den Button "Aufheben" wird die Auswahl wieder aufgehoben.
 
 ### Eigenschaften einer Reihe ändern
 Wurde eine Reihe (oder mehrere) ausgewählt, kann der Abstand unterhalb (margin-bottom in rem) erhöht oder verringert werden.
