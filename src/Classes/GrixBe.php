@@ -53,6 +53,12 @@ class GrixBe extends \BackendModule
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grix.js';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/grix_backend.css';
 			$GLOBALS["TL_CSS"][] = 'bundles/georgpreisslcontaogrix/css/bootstrap_backend.css';
+
+			// $GLOBALS['TL_BODY'][] = \Contao\Template::generateScriptTag('bundles/georgpreisslcontaogrix/js/file2.js', false, null);
+			$GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file1.js" ></script>';
+			$GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file2.js" ></script>';
+
+			
 		}
 
 
@@ -143,8 +149,8 @@ class GrixBe extends \BackendModule
 
 
 		// get all the css-classes of this article
-		// $objClasses = GrixCssModel::findAll();
-		$objClasses = null;
+		$objClasses = GrixCssModel::findAll();
+		// $objClasses = null;
 
 		// store the css-classes in an array
 		$arrClasses = array();

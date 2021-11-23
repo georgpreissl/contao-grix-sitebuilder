@@ -14,5 +14,5 @@
 /**
  * Backend modules
  */
-$GLOBALS['TL_LANG']['MOD']['grixCss']  = array('Grix CSS-Stile', 'CSS-Klassen zur Verwendung in der Grix-Grid-Extension');
+$GLOBALS['TL_LANG']['MOD']['grixCss']  = array('Grix CSS', 'CSS-Klassen definieren welche in Grix auswgewählt werden können');
 $GLOBALS['TL_LANG']['MOD']['grixbe']  = array('Grix', 'Anleitungen zur Grix-Grid-Extension');

@@ -11,9 +11,9 @@
 			var phId = getUrlParameter('phid');
 			var articleId = getUrlParameter('grixarticle');
 			var ceId = getUrlParameter('id');
-			console.log('phId: ',phId);
-			console.log('articleId: ',articleId);
-			console.log('ceId: ',ceId);
+			// console.log('phId: ',phId);
+			// console.log('articleId: ',articleId);
+			// console.log('ceId: ',ceId);
 
 			loadGrixJs(articleId,phId,ceId);
 			

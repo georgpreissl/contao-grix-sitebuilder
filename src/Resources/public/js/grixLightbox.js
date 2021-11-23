@@ -2,7 +2,6 @@
 	$(document).ready(function(){
 		
 
-
 		window.GrixLightbox = function(){
 			
 			var self = this;
@@ -158,7 +157,7 @@
 					// Mark the choosen units config as selected
 					$('.grix_lb_colmenu').each(function(index, el) {
 						var stUnCfg = obClicked.unitsConf[arDevices[index]];
-						console.log('stUnCfg: ',stUnCfg);
+						// console.log('stUnCfg: ',stUnCfg);
 
 						var $unConf = $(this).find('*[data-config="'+stUnCfg+'"]');
 						if ($unConf.length) {

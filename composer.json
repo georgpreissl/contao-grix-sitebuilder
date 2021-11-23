@@ -1,6 +1,6 @@
 {
     "name": "georgpreissl/contao-grix-bundle",
-    "description": "Ein Bootstrap-Sitebuilder für Contao",
+    "description": "Ein Bootstrap-Sitebuilder-Tool für Contao 4",
     "keywords": ["contao","grid","sitebuilder","bootstrap","columns","spalten"],
     "type": "contao-bundle",
     "license": "LGPL-3.0+",

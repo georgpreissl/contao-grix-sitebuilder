@@ -23,17 +23,18 @@ array_insert($GLOBALS['BE_MOD']['design'], 1, array
 		// 'tables' 		  => array('tl_article'),
 		// 'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
 	)
-// ,
-// 	'grixCss' => array
-// 	(
-// 	    'tables'          => array('tl_grix_css'),
-// 	    'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
-// 	)
+,
+	'grixCss' => array
+	(
+	    'tables'          => array('tl_grix_css'),
+	    'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
+	)
 
 ));
 
 
 
+$GLOBALS['TL_MODELS']['tl_grix_css'] = '\\GeorgPreissl\\ContaoGrixBundle\\Models\\GrixCssModel';
 
 
 

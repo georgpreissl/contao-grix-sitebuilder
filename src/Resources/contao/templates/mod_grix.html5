@@ -233,6 +233,9 @@
 
 		<div class="grix_lb_content">
 			<div class="grix_lb_inner">
+				<?php 
+				// dump($this->classes);
+				?>
 				<?php if(!empty($this->classes)) : ?>
 					<div class="grix_lb_section grix_lb_classes">
 						<h1 class="ghl" ><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseClasses'] ?></h1>
@@ -285,7 +288,7 @@
 				</div>
 
 				<div class="grix_lb_section grix_lb_overview">
-					<h1><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseCE'] ?></h1>
+					<h1 class="ghl" ><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseCE'] ?></h1>
 					<?php if(!empty($this->allArticles)) : ?>
 						<div class="grix_lb_articles">
 							<span><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseArticle'] ?></span>
@@ -340,14 +343,14 @@
 			grixLightbox.bindEvents();
 
 			var stData = '<?= $this->data ?>';
-			// console.log(typeof data);
 			if (stData == '') {
 				var obRow = new GrixRow();
 				obRow.addCol(new GrixCol());
 				// Convert the JavaScript object into a string
 				stData = "["+JSON.stringify(obRow)+"]";			
 			};
-
+			
+			
 			// turn the string into a JavaScript object
 			obData = JSON.parse(stData);
 
@@ -359,6 +362,8 @@
 				requTok : '<?= REQUEST_TOKEN ?>',
 				xi : xi
 			}
+
+			// console.log(obCfg);
 
 			// Create a Grix instance
 			var grix = new Grix(obCfg);
@@ -394,7 +399,6 @@
 
 		});
 	})(jQuery);
-
 
 
 

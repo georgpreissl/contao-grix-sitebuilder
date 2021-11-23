@@ -1,3 +1,8 @@
+
+
+
+
+
 (function($){
 
 
@@ -359,8 +364,8 @@ var xi = obCfg.xi;
 				},
 				async:      true,  
 				success: function(data, status) {  
-					console.log(data);
-					console.log("start");
+					// console.log(data);
+					// console.log("start");
 					// console.log(data.data.pageTitle);
 					// console.log(status);
 					// $('.ajax-container').html(data.data)
@@ -561,7 +566,7 @@ var xi = obCfg.xi;
 			boLbActive = false;
 			// add the choosen css classes to the row
 			obRow.classes = obCfgLb.arClasses;
-
+			// console.log(obRow);
 			var arCols = obRow.elements;
 			// console.log('arCols: ',arCols);
 
