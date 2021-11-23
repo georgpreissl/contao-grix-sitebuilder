@@ -1,6 +1,10 @@
 {
     "name": "georgpreissl/contao-grix-bundle",
+<<<<<<< HEAD
     "description": "Ein Bootstrap-Sitebuilder-Tool für Contao 4",
+=======
+    "description": "Ein Sitebuilder für Contao auf Basis von Bootstrap. Mit dieser Erweiterung kannst du Inhalte in Spalten aufteilen. Inhaltselemente werden bereits im Backend in der Spalten-Ansicht angezeigt und können per Drag&Drop arrangiert werden. Die Eigenschaften einer Spalte können mit wenigen Klicks geändert werden. Zudem können Reihen und Spalten ineinander verschachtelt werden. Das entsprechende Bootstrap-Grid wird mitgeliefert und kann im Layout aktiviert werden. Besonders praktisch für Redakteure ist, dass zwischen den Responsive-Breakpoints direkt im Backend gewechselt werden kann.",
+>>>>>>> master
     "keywords": ["contao","grid","sitebuilder","bootstrap","columns","spalten"],
     "type": "contao-bundle",
     "license": "LGPL-3.0+",
