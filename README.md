@@ -8,7 +8,7 @@ Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalte
 * Inhaltselemente werden auch im Backend in der Grid-Ansicht angezeigt
 * Inhaltselemente können per Drag&Drop in Spalten und Reihen arrangiert werden
 * Die Bootstrap-Eigenschaften einer Spalte können mit wenigen Klicks geändert werden
-* Schneller Vorschau-Wechsel zwischen den Responsive-Breakpoints im Backend
+* Schneller Vorschau-Wechsel zwischen den Breakpoints im Backend
 * Reihen und Spalten können einfach ineinander verschachtelt werden
 * Bereits erstellte Inhaltselemente können in eine Spalte "importiert" werden
 
