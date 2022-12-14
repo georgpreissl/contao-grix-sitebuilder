@@ -12,7 +12,7 @@
 			self.bindEvents = function(){
 
 				// choose the units config for a row by click
-				$('.grix_lb_unitsconf').click(function(e) {
+				$('.grix-lb__unitsconf').click(function(e) {
 					$(this).addClass('selected').siblings().removeClass('selected');
 
 					// empty then custom input field when a predefined option is selected
@@ -89,7 +89,7 @@
 				$('#grix_lb_apply').click(function(e){
 
 					// collect the selected unit-configs for a row
-					$('.grix_lb_unitsconf.selected').each(function(i,el){
+					$('.grix-lb__unitsconf.selected').each(function(i,el){
 						var dev = $(el).data('device');
 						self.obCfg.unitsConf[dev] = $(el).data('config');
 					});
@@ -181,7 +181,7 @@
 				};
 
 				// Deselect everything
-				$('.grix_lb_unitsconf').removeClass('selected');
+				$('.grix-lb__unitsconf').removeClass('selected');
 				$('.grix_lb_class').removeClass('selected');
 				$('.grix_lb_ce').removeClass('selected');
 

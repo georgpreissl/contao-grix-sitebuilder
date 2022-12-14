@@ -1083,12 +1083,64 @@
 	height: 2rem;
 	display: block;
 }
+.grix-lb__column {
+	background-color: rgba(0,0,0,0.2);
+	height: 1.5rem;
+	
+}
+.selected .grix-lb__column {
+	background-color: var(--color-highlight);
+}
+.grix-lb__unitsconf {
+	display: grid;
+	column-gap: .5rem;
+	margin-bottom: .5rem;
+}
+.grix-lb__unitsconf--12 {
+	grid-template-columns: 1fr;
+}
+.grix-lb__unitsconf--6-6 {
+	grid-template-columns: 1fr 1fr;
+}
+.grix-lb__unitsconf--3-3-3-3 {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.grix-lb__unitsconf--4-8 {
+	grid-template-columns: 1fr 2fr;
+}
+.grix-lb__unitsconf--8-4 {
+	grid-template-columns: 2fr 1fr;
+}
+.grix-lb__unitsconf--4-4-8 {
+	grid-template-columns: 4fr 4fr 8fr;
+}
+.grix-lb__unitsconf--8-4-4 {
+	grid-template-columns: 8fr 4fr 4fr;
+}
+.grix-lb__unitsconf--4-8-4 {
+	grid-template-columns: 4fr 8fr 4fr;
+}
+.grix-lb__unitsconf--4-4-4 {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.grix-lb__unitsconf--4-8 {
+	grid-template-columns: 4fr 8fr;
+}
+.grix-lb__unitsconf--8-4 {
+	grid-template-columns: 8fr 4fr;
+}
+.grix-lb__unitsconf--3-6-3 {
+	grid-template-columns: 1fr 2fr 1fr;
+}
+.grix-lb__unitsconf--2-8-2 {
+	grid-template-columns: 2fr 8fr 2fr;
+}
 .grix_lb_unitsconf.selected .grix_lb_column span {
-	background-color: #c1dca9;
+	background-color: var(--color-highlight);
 }
 .grix_lb_unitsconf_custom.selected input {
 	background-color: rgba(129,194,26,.1);
-	border: 1px solid #c1dca9;
+	border: 1px solid var(--color-highlight);
 }
 .grix_lb_unitsconf_custom input {
 	display: block;
