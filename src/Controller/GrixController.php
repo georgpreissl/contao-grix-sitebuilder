@@ -4,40 +4,26 @@ namespace GeorgPreissl\ContaoGrixBundle\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Contao\ArticleModel;
 use Contao\PageModel;
 
-class GrixController extends Controller
+class GrixController
 {
 
 
     public function save(Request $request)
     {
-
-
-        // $formData = $request->request->get('formdata'); /** if there is a formData in the js data {} */
         $articleId = $request->request->get('articleId'); 
-        $grixJs = $request->request->get('grixjs'); /** if there is a formData in the js data {} */
-
-        // $html = "<h1>works: ".$formData."</h1>";
-
-
-			// $grixJs = \Input::post('grixJs');
-			// $articleId = \Input::post('articleId');
-
-			$objResult = \Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
-			// echo $objResult->affectedRows;
-
+        $grixJs = $request->request->get('grixjs');  
+        $objResult = \Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
 
         return new JsonResponse(array(
 			'data' => $objResult->affectedRows,
             'status' => 'OK',
             'message' => ['returntest', 'testarray']),
         200);
-		
     }
 
     // load the grix js of an article

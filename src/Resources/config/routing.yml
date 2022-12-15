@@ -2,23 +2,23 @@ grix.contoller.getpage:
     path: /grixtest/{action}
     defaults:
         _controller: GeorgPreissl\ContaoGrixBundle\Controller\GrixController::save
-        _scope: frontend
+        _scope: backend
         _token_check: false
 grix.contoller.grixsave:
     path: /grixsave
     defaults:
         _controller: GeorgPreissl\ContaoGrixBundle\Controller\GrixController::save
-        _scope: frontend
+        _scope: backend
         _token_check: false
 grix.contoller.grixload:
     path: /grixload
     defaults:
         _controller: GeorgPreissl\ContaoGrixBundle\Controller\GrixController::load
-        _scope: frontend
+        _scope: backend
         _token_check: false
 grix.contoller.grixinsert:
     path: /grixinsert
     defaults:
         _controller: GeorgPreissl\ContaoGrixBundle\Controller\GrixController::insert
-        _scope: frontend
+        _scope: backend
         _token_check: false
