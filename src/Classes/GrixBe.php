@@ -6,8 +6,8 @@
  * Copyright (c) 2017 Georg Preissl
  *
  * @package gp_grix
- * @link    http://www.georg-preissl.at
- * @license http://opensource.org/licenses/MIT MIT
+ * @link    https://www.georg-preissl.at
+ * @license https://opensource.org/licenses/MIT MIT
  */
 
 /**
@@ -49,14 +49,10 @@ class GrixBe extends \BackendModule
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/jquery-ui-1.12.1/jquery-ui.min.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixElement.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixLightbox.js';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/test.js';
+			// $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/test.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grix.js';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/grix_backend.css';
 			$GLOBALS["TL_CSS"][] = 'bundles/georgpreisslcontaogrix/css/bootstrap_backend.css';
-
-			// $GLOBALS['TL_BODY'][] = \Contao\Template::generateScriptTag('bundles/georgpreisslcontaogrix/js/file2.js', false, null);
-			// $GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file1.js" ></script>';
-			// $GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file2.js" ></script>';
 
 			
 		}
