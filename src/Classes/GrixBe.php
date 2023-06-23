@@ -66,22 +66,22 @@ class GrixBe extends \BackendModule
 		if (\Input::post('FORM_SUBMIT') == 'tl_grix')
 		{
 			// save the frontend html
-			$grixHtmlFrontend = $_POST['grixHtmlFrontend'];
-			$this->Database->prepare("UPDATE tl_article SET grixHtmlFrontend=? WHERE id=?")->execute($grixHtmlFrontend, $id);
+			$strGrixHtmlFrontend = $_POST['grixHtmlFrontend'];
+			$this->Database->prepare("UPDATE tl_article SET grixHtmlFrontend=? WHERE id=?")->execute($strGrixHtmlFrontend, $id);
 			
 			// save the js string
-			$grixJs = $_POST['grixJs'];
-			$this->Database->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $id);
+			$strGrixJs = $_POST['grixJs'];
+			$this->Database->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($strGrixJs, $id);
 
 			// save the CEsUsed value
-			$CEsUsed = $_POST['CEsUsed'];
-			$CEsUsed = json_decode($CEsUsed,TRUE);
-			$CEsUsed = serialize($CEsUsed);
-			$this->Database->prepare("UPDATE tl_article SET CEsUsed=? WHERE id=?")->execute($CEsUsed, $id);
+			$strCEsUsed = $_POST['CEsUsed'];
+			$arrCEsUsed = json_decode($strCEsUsed,TRUE);
+			$strCEsUsedSerialized = serialize($arrCEsUsed);
+			$this->Database->prepare("UPDATE tl_article SET CEsUsed=? WHERE id=?")->execute($strCEsUsedSerialized, $id);
 		}
 
 
-		// get all the CEs of this article used by Grix
+		// get all the content elements of this article used by Grix
 		$objCEsUsed = $this->Database->prepare("SELECT CEsUsed from tl_article WHERE id=?")->execute($id);
 		$arrCEsUsed = unserialize($objCEsUsed->CEsUsed);
 
@@ -133,11 +133,10 @@ class GrixBe extends \BackendModule
 		}
 
 
-		// get all the css-classes of this article
+		// get all the css classes of this article
 		$objClasses = GrixCssModel::findAll();
-		// $objClasses = null;
 
-		// store the css-classes in an array
+		// store the css classes in an array
 		$arrClasses = array();
 		if ($objClasses !== null)
 		{
@@ -153,7 +152,7 @@ class GrixBe extends \BackendModule
 		}
 
 
-		// get the grixJs of this article
+		// get the grixJs of the article
 		$result = $this->Database->prepare("SELECT grixJs, grixHtmlFrontend, title, pid FROM tl_article WHERE id=?")->execute($id);
 		$strData = $result->grixJs ? : '';
 
@@ -163,18 +162,17 @@ class GrixBe extends \BackendModule
 
 
 
-		// get the title of this article
-		$this->Template->articleTitle = $result->title;		 
+		// get the title of the article
+		$this->Template->articleTitle = $result->title;	
+		
+		// get the title of the page
 		$result = $this->Database->prepare("SELECT title FROM tl_page WHERE id=?")->execute($result->pid);
 		$this->Template->pageTitle = $result->title;		 
 
-
-
-		// id's of the used CEs
-		$this->Template->x = $arrCEsUsed;
+		// id's of the used content elements
 		$this->Template->CEsUsed = json_encode($arrCEsUsed);
 
-		// html data of the content elements
+		// html data of the used content elements
 		$this->Template->ces = $arrCEsData;
 
 		// form action attribute
@@ -273,7 +271,7 @@ class GrixBe extends \BackendModule
 				$arrAlias = array_merge($arrCurrent, $arrAlias);
 			}
 		}
-		// printf('<pre>%s</pre>', print_r($arrAlias,true));
+		
 		return $arrAlias;
 	}
 
