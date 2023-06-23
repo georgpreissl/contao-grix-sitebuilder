@@ -55,8 +55,8 @@ class GrixBe extends \BackendModule
 			$GLOBALS["TL_CSS"][] = 'bundles/georgpreisslcontaogrix/css/bootstrap_backend.css';
 
 			// $GLOBALS['TL_BODY'][] = \Contao\Template::generateScriptTag('bundles/georgpreisslcontaogrix/js/file2.js', false, null);
-			$GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file1.js" ></script>';
-			$GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file2.js" ></script>';
+			// $GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file1.js" ></script>';
+			// $GLOBALS['TL_HEAD'][] = '<script type="module"  srd="bundles/georgpreisslcontaogrix/js/file2.js" ></script>';
 
 			
 		}
