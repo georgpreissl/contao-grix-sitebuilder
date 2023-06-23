@@ -43,17 +43,15 @@ class GrixBe extends \BackendModule
 		    // add "jQuery.noConflict()" at the beginning of TL_JAVASCRIPT
 			array_unshift($GLOBALS['TL_JAVASCRIPT'], 'bundles/georgpreisslcontaogrix/js/jquery.noconflict.js');
 
-		    // add the jquery-library at the beginning of TL_JAVASCRIPT
+		    // add the jquery library at the beginning of TL_JAVASCRIPT
 			array_unshift($GLOBALS['TL_JAVASCRIPT'], 'assets/jquery/js/jquery.min.js');
 
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/jquery-ui-1.12.1/jquery-ui.min.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixElement.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grixLightbox.js';
-			// $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/test.js';
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grix.js';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/grix_backend.css';
 			$GLOBALS["TL_CSS"][] = 'bundles/georgpreisslcontaogrix/css/bootstrap_backend.css';
-
 			
 		}
 
@@ -62,15 +60,6 @@ class GrixBe extends \BackendModule
 		// get the id of the article to edit
 		// eg. main.php ? do=grixbe & id=4 & ref=f450a0f36c3019d4030aeab540292c3d
 		$id = \Input::get('id');
-
-
-		// if grix is activated in the backend-module-panel, show the help-template
-		if(!$id)
-		{
-			$objTemplate = new \BackendTemplate('mod_grix_help');
-			$this->Template = $objTemplate;
-			return;
-		}
 
 
 		// if the grixBeForm has been submitted, save js and html to the database

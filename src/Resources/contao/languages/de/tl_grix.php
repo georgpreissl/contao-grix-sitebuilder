@@ -69,5 +69,3 @@ $GLOBALS['TL_LANG']['tl_grix']['help_nestedColumns'] = 'Verschachtelte Raster er
 $GLOBALS['TL_LANG']['tl_grix']['help_switchDevice'] = 'Ausgabegerät-Ansicht wechseln';
 
 
-
-?>
