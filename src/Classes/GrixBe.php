@@ -36,7 +36,7 @@ class GrixBe extends \BackendModule
 		if (TL_MODE=='BE')
 		{
 
-			if (!is_array($GLOBALS['TL_JAVASCRIPT']))
+			if (!isset($GLOBALS['TL_JAVASCRIPT']))
 			{
 				$GLOBALS['TL_JAVASCRIPT'] = array();
 			}
@@ -169,18 +169,21 @@ class GrixBe extends \BackendModule
 
 
 		// get the grixJs of this article
-		$result = $this->Database->prepare("SELECT grixJs, title, pid FROM tl_article WHERE id=?")->execute($id);
+		$result = $this->Database->prepare("SELECT grixJs, grixHtmlFrontend, title, pid FROM tl_article WHERE id=?")->execute($id);
 		$strData = $result->grixJs ? : '';
-		
-		// get the title of this article
-		$this->Template->articleTitle = $result->title;		 
-		$result = $this->Database->prepare("SELECT title FROM tl_page WHERE id=?")->execute($result->$pid);
-		$this->Template->pageTitle = $result->title;		 
-
 
 		$this->Template->id = $id;
 		$this->Template->data = $strData;
-		$this->Template->grixHtmlFrontend = $grixHtmlFrontend;
+		$this->Template->grixHtmlFrontend = $result->grixHtmlFrontend;
+
+
+
+		// get the title of this article
+		$this->Template->articleTitle = $result->title;		 
+		$result = $this->Database->prepare("SELECT title FROM tl_page WHERE id=?")->execute($result->pid);
+		$this->Template->pageTitle = $result->title;		 
+
+
 
 		// id's of the used CEs
 		$this->Template->x = $arrCEsUsed;
@@ -266,9 +269,11 @@ class GrixBe extends \BackendModule
 						$key = $objArticles->parent . ' (ID ' . $objArticles->pid . ')';
 						if ($id == $objArticles->id ) 
 						{
+							
 							// show the current edited article as first option in the dropdown
 							$arrCurrent = array();
-							$arrCurrent[$key][$objArticles->id] = $objArticles->title . ' (' . ($GLOBALS['TL_LANG']['tl_article'][$objArticles->inColumn] ?: $objArticles->inColumn) . ', ID ' . $objArticles->id . ')';
+							// $arrCurrent[$key][$objArticles->id] = $objArticles->title . ' (' . ($GLOBALS['TL_LANG']['tl_article'][$objArticles->inColumn] ?: $objArticles->inColumn) . ', ID ' . $objArticles->id . ')';
+							$arrCurrent[$key][$objArticles->id] = $objArticles->title . ' (ID ' . $objArticles->id . ')';
 							
 
 						} else {

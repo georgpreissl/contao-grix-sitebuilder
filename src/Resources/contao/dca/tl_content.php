@@ -33,7 +33,7 @@ class gp_grix extends tl_content
     	{
 
     		// do not remove!!!
-			if (!is_array($GLOBALS['TL_JAVASCRIPT']))
+			if (!isset($GLOBALS['TL_JAVASCRIPT']))
 			{
 				$GLOBALS['TL_JAVASCRIPT'] = array();
 			}
