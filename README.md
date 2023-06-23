@@ -10,7 +10,8 @@ Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalte
 * Die Bootstrap-Eigenschaften einer Spalte können mit wenigen Klicks geändert werden
 * Schneller Vorschau-Wechsel zwischen den Breakpoints im Backend
 * Reihen und Spalten können einfach ineinander verschachtelt werden
-* Bereits erstellte Inhaltselemente können in eine Spalte "importiert" werden
+* Bereits erstellte Inhaltselemente können in eine Spalte importiert werden
+
 
 ![screen1](https://user-images.githubusercontent.com/4385048/103889062-1336f100-50e6-11eb-8844-925954f57a4e.png)
 *Grix im Bearbeitungs-Modus*
@@ -43,6 +44,9 @@ Wurde eine Spalte (oder mehrere) ausgewählt, können  mit den Plus/Minus-Button
 ### Eigenschaften eines Inhaltselements ändern
 Wurde ein Inhaltselement (oder mehrere) ausgewählt, kann der Abstand unterhalb (margin-bottom in rem) erhöht oder verringert werden.
 Die Eigenschaften "Breite", "Versatz", "Push" und "Pull" sind für Inhaltselemente nicht verfügbar – diese Buttons sind daher ausgegraut.
+
+### Den Reihen und Spalten CSS-Klassen zuweisen
+Mit Grix wird ein Backendmodul namens "Grix CSS" mitinstalliert. Dieses Modul scheint im Backend in der vertikalen Seitenleiste (Gruppe "Layout") auf. Mit diesem Modul können CSS-Stile angelegt werden. Diese CSS-Stile können dann den Reihen und Spalten des Grids zugewiesen werden. Die Zuweisung erfolgt über das Zahnrad-Icon der Reihen und Spalten. Klickt man dieses Icon an, öffnet sich ein PopUp. Im oberen Bereich des PopUps können nun die zuvor angelegten CSS-Stile ausgewählt werden. Ist ein CSS-Stil aktiviert, erscheint er farblich hervorgehoben.
 
 ### Inhaltselemente per Drag&Drop arrangieren
 Inhaltselemente können per Drag&Drop neu platziert werden. Dazu das Inhaltselement mit gedrückter Maustaste an den Zielort verschieben. Ein grüner Platzhalterrahmen zeigt an wenn das Inhaltselement eingefügt werden kann.
