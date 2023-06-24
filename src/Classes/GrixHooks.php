@@ -6,8 +6,8 @@
  * Copyright (c) 2017 Georg Preissl
  *
  * @package gp_grix
- * @link    http://www.georg-preissl.at
- * @license http://opensource.org/licenses/MIT MIT
+ * @link    https://www.georg-preissl.at
+ * @license https://opensource.org/licenses/MIT MIT
  */
 
 /**
@@ -26,7 +26,6 @@ use Contao\PageRegular;
 class GrixHooks extends \Backend {
 
 
-
 	/**
 	 * Change the output if grixJs is set and activated
 	 */
@@ -34,19 +33,10 @@ class GrixHooks extends \Backend {
 	{
 		if ($arrData['grixJs'] !== '' && $arrData['grixToggle'] == '1') 
 		{
-
-			$grixHtmlFrontend = $arrData['grixHtmlFrontend'];
-
-			// is this needed?????
-			// $grixHtmlFrontend = preg_replace("/%u([0-9a-f]{3,4})/i","&#x\\1;",urldecode($grixHtmlFrontend));
-			// $grixHtmlFrontend = html_entity_decode($grixHtmlFrontend,null,'UTF-8');;
-
-			$objTemplate->elements = array($grixHtmlFrontend);
+			$strGrixHtmlFrontend = $arrData['grixHtmlFrontend'];
+			$objTemplate->elements = array($strGrixHtmlFrontend);
 		}
 	}
-
-
-
 
 
 	/**
@@ -71,7 +61,6 @@ class GrixHooks extends \Backend {
 	 */
 	public function createGrixIcon($row, $href, $label, $title, $icon, $attributes)
 	{
-		// printf('<pre>%s</pre>', print_r($row,true));
 		$strIcon = ($row['grixToggle'] == '') ? 'icon_inactive' : 'icon';
 		return '<a class="grix_icon" href="contao/main.php?do=grixbe&amp;id='.$row['id'].'&amp;ref='.REQUEST_TOKEN.'" title="'.specialchars($title).'"'.$attributes.'>'
 		.\Image::getHtml('bundles/georgpreisslcontaogrix/img/'.$strIcon.'.svg', $label)
@@ -167,7 +156,7 @@ class GrixHooks extends \Backend {
 
 
 
-	// Add a CSS file to the layout options
+	// Include the frontend css files if the user has specified so in the layout settings
 
 	public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
 	{
@@ -176,23 +165,6 @@ class GrixHooks extends \Backend {
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/margin-bottom.css||static';
 		}
 	}
-
-
-
-
-
-
-	public function addBootstrapFramework($strName)
-	{
-	    if ($strName == 'tl_layout')
-	    {
-	      array_push($GLOBALS['TL_DCA']['tl_layout']['fields']['framework']['options'], 'bundles/georgpreisslcontaogrix/css/bootstrap.css');
-	      array_push($GLOBALS['TL_DCA']['tl_layout']['fields']['framework']['options'], 'bundles/georgpreisslcontaogrix/css/margin-bottom.css');
-	    }
-	}
-
-
-
 
 
 }

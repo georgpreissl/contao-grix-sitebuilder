@@ -46,12 +46,8 @@ $GLOBALS['TL_MODELS']['tl_grix_css'] = '\\GeorgPreissl\\ContaoGrixBundle\\Models
 // Add the grix icon in the article list view
 $GLOBALS['TL_HOOKS']['loadDataContainer'][] = array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'addGrixIcon');
 
-// Add the bootstrap css file to the layout options in the backend
-// $GLOBALS['TL_HOOKS']['loadDataContainer'][] = array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'addBootstrapFramework');
-
 // Add the bootstrap css file in the frontend
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'generatePageHook');
-
 
 // Output the grix html if grix is activated
 $GLOBALS['TL_HOOKS']['compileArticle'][] = array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'myCompileArticle');
@@ -68,8 +64,7 @@ $GLOBALS['TL_HOOKS']['executePostActions'][] = array('GeorgPreissl\ContaoGrixBun
 /*
 ToDo:
 
-- title attributes with optional explanations for the css classes in the lightbox
-- 
+- add possibility to toggle visiblity of content elements in the grix grid view
 
 
 

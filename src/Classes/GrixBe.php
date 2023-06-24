@@ -29,13 +29,10 @@ class GrixBe extends \BackendModule
 
 		$this->loadLanguageFile('tl_grix'); 
 
-		/**
-		 * CSS & Javascripts
-		 */
+		// include CSS & Javascripts
 
 		if (TL_MODE=='BE')
 		{
-
 			if (!isset($GLOBALS['TL_JAVASCRIPT']))
 			{
 				$GLOBALS['TL_JAVASCRIPT'] = array();
@@ -52,9 +49,7 @@ class GrixBe extends \BackendModule
 			$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/georgpreisslcontaogrix/js/grix.js';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/grix_backend.css';
 			$GLOBALS["TL_CSS"][] = 'bundles/georgpreisslcontaogrix/css/bootstrap_backend.css';
-			
 		}
-
 
 
 		// get the id of the article to edit
@@ -235,7 +230,6 @@ class GrixBe extends \BackendModule
 		}
 		else
 		{
-
 			$objArticles = $this->Database->prepare("SELECT a.id, a.pid, a.title, a.inColumn, p.title AS parent FROM tl_article a LEFT JOIN tl_page p ON p.id=a.pid ORDER BY parent, a.sorting")
 									   ->execute();
 		}
@@ -260,7 +254,7 @@ class GrixBe extends \BackendModule
 							
 
 						} else {
-							$arrAlias[$key][$objArticles->id] = $objArticles->title . ' (' . ($GLOBALS['TL_LANG']['tl_article'][$objArticles->inColumn] ?: $objArticles->inColumn) . ', ID ' . $objArticles->id . ')';
+							$arrAlias[$key][$objArticles->id] = $objArticles->title . ' (ID ' . $objArticles->id . ')';
 
 						}
 					}
@@ -274,9 +268,6 @@ class GrixBe extends \BackendModule
 		
 		return $arrAlias;
 	}
-
-
-
 
 
 
