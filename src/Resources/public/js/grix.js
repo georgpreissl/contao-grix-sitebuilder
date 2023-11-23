@@ -1052,9 +1052,9 @@
                     var stClass = "ce";
                     stClass = createFeMargin(obEl, stClass);
 
-                    // html += "<div class='"+stClass+"' id='el_"+stNewId+"' >";
+                    html += "<div class='"+stClass+"' id='el_"+stNewId+"' >";
                     html += "{{insert_content::" + obEl.id + "}}";
-                    // html += "</div>";
+                    html += "</div>";
                 }
             }
             return html;

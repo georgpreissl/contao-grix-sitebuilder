@@ -14,10 +14,10 @@ Grix vereinfacht die Erstellung und Bearbeitung von grid-basierten Seiteninhalte
 
 
 ![screen1](https://user-images.githubusercontent.com/4385048/103889062-1336f100-50e6-11eb-8844-925954f57a4e.png)
-*Grix im Bearbeitungs-Modus*
+*Grix im Bearbeitungsmodus*
 
 ![screen2](https://user-images.githubusercontent.com/4385048/103889097-23e76700-50e6-11eb-9dbd-29688838b3d2.png)
-*Grix im Vorschau-Modus*
+*Grix im Vorschaumodus*
 
 ## Verwendung
 Um den Grix-Sitebuilder bei der Bearbeitung eines Artikels zu verwenden, muss in den Artikel-Einstellungen die Checkbox "Grix aktivieren" angeklickt werden. Wurde das gemacht, ist das Grix-Bearbeitungsicon in der Artikel-Listenansicht aktiv (es ist nicht mehr ausgegraut). Der Artikel kann nun mit Grix bearbeitet werden. 
