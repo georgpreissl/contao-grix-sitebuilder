@@ -161,7 +161,7 @@ class GrixHooks extends \Backend {
 	public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
 	{
 		if ($layout->grix_load_css) {
-			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/bootstrap.css||static';
+			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/bootstrap-4/bootstrap-grid.css||static';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/margin-bottom.css||static';
 		}
 	}

@@ -71,12 +71,12 @@
 	position: relative;
 	
 }
-.grix_beautyfied {
-	font-size: 1rem;
+.grix__debuginfo-data {
+	font-size: .9rem;
 	white-space: pre;
 	font-family: monospace;
 	tab-size: 3rem;
-	
+	line-height: 115%;
 }
 .grix_beautyfied .key {
 	color: #2B2B2B;
@@ -1309,16 +1309,16 @@
 	display: inline-block;
 	width: 12rem;
 }
-.grix_debuginfo {
+.grix__debuginfo {
 	display: none;
 }
-.grix_debuginfo_article {
+.grix__debuginfo-ce {
 	font-size: 1.5em;
 }
-.grix_debuginfo > div {
+.grix__debuginfo > div {
 	flex-basis: 50%;
 }
-.grix_debug .grix_debuginfo {
+.grix_debug .grix__debuginfo {
 	display: flex;
 
 }

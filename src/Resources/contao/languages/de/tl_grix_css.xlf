@@ -1,0 +1,43 @@
+<?xml version="1.0" ?><xliff version="1.1">
+	<file datatype="php" original="src/Resources/contao/languages/en/tl_article.php" source-language="en" target-language="de">
+	<body>
+		<trans-unit id="tl_article.grixJs">
+			<source>Grix JS</source>
+			<target>Grix JS</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixToggle.0">
+			<source>Activate Grix</source>
+			<target>Grix aktivieren</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixToggle.1">
+			<source>Enable the Grix extension for this article</source>
+			<target>Die Erweiterung "Grix" für diesen Artikel aktivieren</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixListIcon.0">
+			<source>Grix-Grid</source>
+			<target>Grix-Raster</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixListIcon.1">
+			<source>Edit articles with Grix</source>
+			<target>Artikel mit Grix bearbeiten</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixHtmlFrontend.0">
+			<source>Grix-Html-Frontend-Output</source>
+			<target>Grix-Html-Frontend-Output</target>
+		</trans-unit>
+		<trans-unit id="tl_article.grixHtmlFrontend.1">
+			<source>The frontend HTML code created by Grix</source>
+			<target>Der von Grix erstellte Frontend-HTML-Code</target>
+		</trans-unit>
+		<trans-unit id="tl_article.CEsUsed.0">
+			<source>Used Content Elements</source>
+			<target>Verwendete Inhaltselemente</target>
+		</trans-unit>
+		<trans-unit id="tl_article.CEsUsed.1">
+			<source>Content Elements used by Grix</source>
+			<target>Von Grix verwendete Inhaltselemente</target>
+		</trans-unit>
+	</body>
+	</file>
+</xliff>
+

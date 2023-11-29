@@ -183,17 +183,17 @@
 		<?php endforeach; ?>
 	</ul>
 
-	<div class="grix_debuginfo">
+	<div class="grix__debuginfo">
 
-		<div class="grix_beautyfied">
+		<div class="grix__debuginfo-data">
 		</div>
 
-		<div class="grix_debuginfo_article">
-			<h2>Content elements contained in this article</h2>
+		<div class="grix_debuginfo-ce">
+			<p><strong>Content elements contained in this article</strong></p>
 			<p>Number: <?= $this->DbgCEsNr; ?></p>
 			<p><?= $this->DbgCEs; ?></p>
 			<br>
-			<h2>Content elements used in the grix grid above</h2>
+			<p><strong>Content elements used in the grix grid above</strong></p>
 			<p>Number: <span id="DbgCEsUsedNr"><?= $this->DbgCEsUsedNr; ?></span></p>
 			<p>IDs: <span id="DbgCEsUsedArr"><?= $this->DbgCEsUsed; ?></span></p>
 		</div>		
@@ -310,25 +310,24 @@
 	(function($){
 		$(document).ready(function(){
 
-
-			// var xi = new X();
-
-			// Create a GrixLightbox instance
+			// create a GrixLightbox instance
 			var grixLightbox = new GrixLightbox();
 			grixLightbox.bindEvents();
 
+			// convert the JSON string into a JavaScript variable
 			var stData = '<?= $this->data ?>';
+
+			// start from scratch if the JSON string is empty
 			if (stData == '') {
 				var obRow = new GrixRow();
 				obRow.addCol(new GrixCol());
-				// Convert the JavaScript object into a string
 				stData = "["+JSON.stringify(obRow)+"]";			
 			};
 			
-			
-			// turn the string into a JavaScript object
-			obData = JSON.parse(stData);
+			// parse the JSON string into a JavaScript object
+			var obData = JSON.parse(stData);
 
+			// assembling the configuration object
 			var obCfg = {
 				articleId : <?= $this->id ?> ,
 				data : obData,
@@ -337,17 +336,14 @@
 				requTok : '<?= REQUEST_TOKEN ?>'
 			}
 
-			// console.log(obCfg);
-
-			// Create a Grix instance
+			// create a Grix instance
 			var grix = new Grix(obCfg);
 			grix.init();
 			
 
 
 
-			// testing:
-			// grixLightbox.activate();
+			// fix the Grix menu at the top when scrolling
 
 			$grixMenu = $('.grix_menu');
 			var nrGxMnTop = $grixMenu.offset().top;
@@ -357,7 +353,6 @@
 
 			window.addEvent('scroll', function(){
 				var st = $(window).scrollTop();
-				
 			    if(st > nrGxMnSwitch){
 					$grixMenu.addClass('fixed');
 					$grixMenu.css({
@@ -370,6 +365,7 @@
 					
 				}
 			});
+
 
 		});
 	})(jQuery);
