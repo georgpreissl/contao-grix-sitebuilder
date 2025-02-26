@@ -14,23 +14,19 @@
 /**
  * Backend module
  */
-array_insert($GLOBALS['BE_MOD']['design'], 1, array
+$GLOBALS['BE_MOD']['design']['grixbe'] = array
 (
-	'grixbe' => array
-	(
-		'callback'        => 'GeorgPreissl\ContaoGrixBundle\Classes\GrixBe',
-		'hideInNavigation' 		  => true
-		// 'tables' 		  => array('tl_article'),
-		// 'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
-	)
-,
-	'grixCss' => array
-	(
-	    'tables'          => array('tl_grix_css'),
-	    'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
-	)
+	'callback'        => 'GeorgPreissl\ContaoGrixBundle\Classes\GrixBe',
+	'hideInNavigation' 		  => true
+	// 'tables' 		  => array('tl_article'),
+	// 'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
+);
 
-));
+$GLOBALS['BE_MOD']['design']['grixCss'] = array
+(
+	'tables'          => array('tl_grix_css'),
+	'icon'            => 'bundles/georgpreisslcontaogrix/img/icon.svg'
+);
 
 
 

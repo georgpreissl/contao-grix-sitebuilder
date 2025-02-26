@@ -2,7 +2,9 @@
 
 
 
-
+use Contao\Input;
+use Contao\Database;
+use Contao\DC_Table;
 
 
 
@@ -25,11 +27,11 @@ class gp_grix extends tl_content
 	/**
 	 * Add the grix js when a new CE is created via grix
 	 */
-    public function addGrixJs(DataContainer $dc)
+    public function addGrixJs(DC_Table $dc)
     {
 
 
-    	if(\Input::get('grix')=='create')
+    	if(Input::get('grix')=='create')
     	{
 
     		// do not remove!!!
@@ -58,23 +60,25 @@ class gp_grix extends tl_content
 	 * CE has been saved/submitted: 
 	 * Now add the article id as a url parameter and redirect to GrixBE
 	 */
-    public function grixOnCeSubmit(DataContainer $dc)
+    public function grixOnCeSubmit(DC_Table $dc)
     {
 
-    	if (\Input::get('grix'))
+    	if (Input::get('grix'))
     	{
     		// Only redirect when the save buttons have been pressed
     		// required to ignore the selection of a ce module 
-    		if ($this->Input->post('saveNclose') || $this->Input->post('saveNback')) 
+    		// if ($this->Input->post('saveNclose') || $this->Input->post('saveNback')) 
+    		if (Input::post('saveNclose') || Input::post('saveNback')) 
     		{
-	    		if (\Input::get('grix')=='edit' || \Input::get('grix')=='create' ) 
+	    		if (Input::get('grix')=='edit' || Input::get('grix')=='create' ) 
 	    		{
-					$strCeId = \Input::get('id');
-					$strArtId = \Input::get('pid');
+					$strCeId = Input::get('id');
+					$strArtId = Input::get('pid');
 				        
 			        // add the tstamp, required!
 					$this->import('Database');
-					$this->Database->prepare("UPDATE tl_content SET tstamp=? WHERE id=?")->execute(time(), $strCeId);
+
+					Database::getInstance()->prepare("UPDATE tl_content SET tstamp=? WHERE id=?")->execute(time(), $strCeId);
 
 		 			// go back to the grix module
 		 			$this->redirect('contao?do=grixbe&id='.$strArtId);

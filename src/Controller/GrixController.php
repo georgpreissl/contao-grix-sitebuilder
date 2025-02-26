@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Contao\ArticleModel;
 use Contao\PageModel;
+use Contao\Database;
 
 class GrixController
 {
@@ -17,7 +18,8 @@ class GrixController
     {
         $articleId = $request->request->get('articleId'); 
         $grixJs = $request->request->get('grixjs');  
-        $objResult = \Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
+
+        $objResult = Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
 
         return new JsonResponse(array(
 			'data' => $objResult->affectedRows,
@@ -32,7 +34,7 @@ class GrixController
 
         $articleId = $request->request->get('articleId');
 
-        $objResult = \Database::getInstance()->prepare("SELECT grixJs from tl_article WHERE id=?")->execute($articleId);
+        $objResult = Database::getInstance()->prepare("SELECT grixJs from tl_article WHERE id=?")->execute($articleId);
         // echo $objResult->grixJs;
 
         return new JsonResponse(array(
@@ -59,10 +61,10 @@ class GrixController
 
 
         // Insert the new grix js
-        $objResult = \Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
+        $objResult = Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
 
         // Get the used CEs for this article as a database object
-        $objUsedCEs = \Database::getInstance()->prepare("SELECT CEsUsed from tl_article WHERE id=?")->execute($articleId);
+        $objUsedCEs = Database::getInstance()->prepare("SELECT CEsUsed from tl_article WHERE id=?")->execute($articleId);
 
         // Unserialize the CEsUsed property
         $arrUsedCEs = unserialize($objUsedCEs->CEsUsed);
@@ -77,7 +79,7 @@ class GrixController
         {
             $arrUsedCEs[] = $ceId;
             $data = serialize($arrUsedCEs);
-            \Database::getInstance()->prepare("UPDATE tl_article SET CEsUsed=? WHERE id=?")->execute($data, $articleId);
+            Database::getInstance()->prepare("UPDATE tl_article SET CEsUsed=? WHERE id=?")->execute($data, $articleId);
             
         }
 
@@ -106,7 +108,7 @@ class GrixController
 			// $grixJs = \Input::post('grixJs');
 			// $articleId = \Input::post('articleId');
 
-			$objResult = \Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
+			$objResult = Database::getInstance()->prepare("UPDATE tl_article SET grixJs=? WHERE id=?")->execute($grixJs, $articleId);
 			// echo $objResult->affectedRows;
 
 

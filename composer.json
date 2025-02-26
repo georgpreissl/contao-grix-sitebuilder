@@ -17,8 +17,8 @@
         "source": "https://github.com/georgpreissl/contao-grix-sitebuilder"
     },
     "require": {
-        "php": "^7.2 || ^8.0",
-        "contao/core-bundle": "^4.4"
+        "php": "^8.0",
+        "contao/core-bundle": "^5"
     },
     "autoload": {
         "psr-4": {

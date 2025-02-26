@@ -1,17 +1,9 @@
-
-
-
-
-
 (function($){
 
 
     window.Grix = function(obCfg) {
 
 
-
-        var xi = obCfg.xi;
-        //xi.m();
 
         var debug = false;
         var boLbActive = false;
@@ -21,7 +13,7 @@
         var arAct = [];
         var arResKeys = [38, 40, 49, 50, 51, 52, 83, 37, 39, 27, 32, 68];
         var arBootProps = ['width', 'offset', 'push', 'pull', 'margin'];
-        var arDevices = ['xs', 'sm', 'md', 'lg'];
+        const arDevices = ['xs', 'sm', 'md', 'lg'];
         var device = 'lg';
         var arConfDefault = ['12', '6-6', '3-3-3-3', '3-9', '9-3', '3-3-6', '6-3-3', '3-6-3', '4-4-4', '4-8', '8-4'];
         var $grix = $('.grix');
@@ -234,7 +226,7 @@
                     arCEsUsed.push(arCEsFound[i]);
                 };
                 // if (debug) updateDebug();
-                if (debug) xi.m(arCEsUsed);
+                // if (debug) xi.m(arCEsUsed);
 
                 var obTCopy = JSON.parse(JSON.stringify(obT));
                 var obP = getTarget(id, 1);
@@ -351,7 +343,7 @@
             // var stFormData = $("#grixBeForm").serialize();
             // stFormData += '&grixAction=save';
 
-            console.log('jajaja');
+            // console.log(stPhId);
 
             $.ajax({
                 // url:     '/grixsave/666',
@@ -364,7 +356,7 @@
                 },
                 async: true,
                 success: function(data, status) {
-                    // console.log(data);
+                    console.log(data);
                     // console.log("start");
                     // console.log(data.data.pageTitle);
                     // console.log(status);
@@ -797,7 +789,6 @@
             // column menu
 
             $('.add_ce').click(function(e) {
-                console.log('jo');
                 addCE($(this).parent());
                 e.preventDefault();
                 e.stopPropagation();
@@ -1002,7 +993,7 @@
 
                 // lets build a row
                 if (obEl.type == "row") {
-                    html += "<div class='row cfix" + stClassCust + "' >";
+                    html += "<div class='row" + stClassCust + "' >";
 
                     // lets build cols
                     if (obEl.elements) {
@@ -1011,8 +1002,8 @@
 
                         for (var x = 0; x < arCols.length; x++) {
                             var obCol = arCols[x];
-                            var stNewId = (id == "" ? y + "_" + x : id + "_" + y + "_" + x);
-                            var stClass = "l" + level;
+                            var stNewId = (id == "" ? y + "-" + x : id + "-" + y + "-" + x);
+                            var stClass = "col";
                             stClass = createFeMargin(obCol, stClass);
 
                             // add the bootstrap classes
@@ -1033,7 +1024,7 @@
                             // Add the classes selected by the user
                             stClass = obCol.classes ? stClass + " " + obCol.classes.join(" ") : stClass;
 
-                            html += "<div class='" + stClass + "' id='el_" + stNewId + "' >";
+                            html += "<div class='" + stClass + "' id='el-" + stNewId + "' >";
                             if (obCol.elements) {
                                 html += createFeHtmlCode(obCol.elements, level, stNewId);
                             }
@@ -1041,18 +1032,18 @@
                         }
                     }
 
-                    var stNewId = (id == '' ? y : id + "_" + y);
+                    var stNewId = (id == '' ? y : id + "-" + y);
 
                     html += "</div>";
                 }
 
                 // lets build a content-element
                 if (obEl.type == "ce") {
-                    var stNewId = (id == "" ? y : id + "_" + y);
+                    var stNewId = (id == "" ? y : id + "-" + y);
                     var stClass = "ce";
                     stClass = createFeMargin(obEl, stClass);
 
-                    html += "<div class='"+stClass+"' id='el_"+stNewId+"' >";
+                    html += "<div class='"+stClass+"' id='el-"+stNewId+"' >";
                     html += "{{insert_content::" + obEl.id + "}}";
                     html += "</div>";
                 }
@@ -1101,13 +1092,14 @@
             // fill the backend form inputs
             $('#ctrl_grixHtmlFrontend').val(stHtmlFe);
             $('#ctrl_grixJson').val(stJson);
+
             addUi();
 
             if (debug) {
                 $body.addClass('grix_debug');
                 var stJsonBeautyfied = JSON.stringify(obData, null, "\t");
                 stJsonBeautyfied = syntaxHighlight(stJsonBeautyfied);
-                $('.grix_beautyfied').html(stJsonBeautyfied);
+                $('.grix__debuginfo-data').html(stJsonBeautyfied);
             };
 
             // $grix.removeClass('saved');

@@ -21,9 +21,23 @@ use Contao\DataContainer;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
+use Contao\Backend;
+use Contao\Input;
+use Contao\ContentModel;
+use Contao\Controller;
+use Contao\System;
+use Contao\StringUtil;
+use Contao\Image;
 
 
-class GrixHooks extends \Backend {
+class GrixHooks extends Backend {
+
+
+	private function getRequestToken()
+	{
+		return System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue(); 
+
+	}
 
 
 	/**
@@ -44,15 +58,12 @@ class GrixHooks extends \Backend {
 	 */
 	public function addGrixIcon()
 	{
-		array_insert($GLOBALS['TL_DCA']['tl_article']['list']['operations'], 0, array
+		$GLOBALS['TL_DCA']['tl_article']['list']['operations']['grix'] = array
 		(
-			'grix' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_article']['grixListIcon'],
-				'icon'                => 'bundles/georgpreisslcontaogrix/img/icon.svg',
-				'button_callback'     => array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'createGrixIcon')
-			)
-		));
+			'label'               => &$GLOBALS['TL_LANG']['tl_article']['grixListIcon'],
+			'icon'                => 'bundles/georgpreisslcontaogrix/img/icon.svg',
+			'button_callback'     => array('GeorgPreissl\ContaoGrixBundle\Classes\GrixHooks', 'createGrixIcon')
+		);
 	}
 
 
@@ -62,8 +73,8 @@ class GrixHooks extends \Backend {
 	public function createGrixIcon($row, $href, $label, $title, $icon, $attributes)
 	{
 		$strIcon = ($row['grixToggle'] == '') ? 'icon_inactive' : 'icon';
-		return '<a class="grix_icon" href="contao/main.php?do=grixbe&amp;id='.$row['id'].'&amp;ref='.REQUEST_TOKEN.'" title="'.specialchars($title).'"'.$attributes.'>'
-		.\Image::getHtml('bundles/georgpreisslcontaogrix/img/'.$strIcon.'.svg', $label)
+		return '<a class="grix_icon" href="contao?do=grixbe&amp;id='.$row['id'].'&amp;ref='.$this->getRequestToken().'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'
+		.Image::getHtml('bundles/georgpreisslcontaogrix/img/'.$strIcon.'.svg', $label)
 		.'</a> ';
 	}
 
@@ -73,7 +84,7 @@ class GrixHooks extends \Backend {
 	 */
 	public function myParseBackendTemplate($strBuffer, $strTemplate)
 	{
-	    if ($strTemplate == 'be_main' && \Input::get('do') == 'grixbe')
+	    if ($strTemplate == 'be_main' && Input::get('do') == 'grixbe')
 	    {
 	        $strBuffer = str_replace('<body id="top" class="', '<body id="top" class="grix_active grix_lg ', $strBuffer);
 	    }
@@ -100,9 +111,9 @@ class GrixHooks extends \Backend {
 
         if ($strAction == 'saveGrix')
         {
-        	$id = \Input::post('id');
-        	$grixJs = \Input::post('grixJs');
-        	$grixHtml = \Input::post('grixHtmlFrontend');
+        	$id = Input::post('id');
+        	$grixJs = Input::post('grixJs');
+        	$grixHtml = Input::post('grixHtmlFrontend');
 
           	$this->import('Database');
 			$this->Database->prepare("UPDATE tl_article SET grixHtmlFrontend=? WHERE id=?")->execute($grixHtml, $id);
@@ -111,7 +122,7 @@ class GrixHooks extends \Backend {
 			echo json_encode(array 
 			( 
 			    'content'    => 'done!', 
-			    'token'        => REQUEST_TOKEN 
+			    'token'        => $this->getRequestToken() 
 			));  
             exit; 
             
@@ -123,9 +134,9 @@ class GrixHooks extends \Backend {
         if ($strAction == 'loadGrixCEs')
         {
 
-        	$id = \Input::post('id');
+        	$id = Input::post('id');
 
-			$objCte = \ContentModel::findPublishedByPidAndTable($id, 'tl_article');
+			$objCte = ContentModel::findPublishedByPidAndTable($id, 'tl_article');
 
 			if ($objCte !== null)
 			{
@@ -133,7 +144,7 @@ class GrixHooks extends \Backend {
 			 	while ($objCte->next())
 				{
 					$objRow = $objCte->current();
-					$strBuffer = \Controller::getContentElement($objRow, "main");
+					$strBuffer = Controller::getContentElement($objRow, "main");
 
 					$html .= "<li class='grix_lb_ce' data-ceid='".$objCte->id."' >";
 					$html .= "<div class='grix_lb_ce_inner' id='grixce_".$objCte->id."' >";
@@ -147,7 +158,7 @@ class GrixHooks extends \Backend {
 			echo json_encode(array 
 			( 
 			    'content'    => $html, 
-			    'token'      => REQUEST_TOKEN 
+			    'token'      => $this->getRequestToken() 
 			));  
             exit; 
         }  
@@ -161,7 +172,7 @@ class GrixHooks extends \Backend {
 	public function generatePageHook(PageModel $page, LayoutModel $layout, PageRegular $pageRegular)
 	{
 		if ($layout->grix_load_css) {
-			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/bootstrap.css||static';
+			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/bootstrap-4/bootstrap-grid.css||static';
 			$GLOBALS['TL_CSS'][] = 'bundles/georgpreisslcontaogrix/css/margin-bottom.css||static';
 		}
 	}

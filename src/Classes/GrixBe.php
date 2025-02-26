@@ -15,10 +15,17 @@
  */
 namespace GeorgPreissl\ContaoGrixBundle\Classes;
 
-
+use Contao\BackendModule;
+use Contao\System;
+use Contao\Input;
+use Contao\ContentModel;
+use Contao\Controller;
+use Contao\Environment;
+use Contao\StringUtil;
+use Contao\BackendUser;
 use GeorgPreissl\ContaoGrixBundle\Models\GrixCssModel;
 
-class GrixBe extends \BackendModule
+class GrixBe extends BackendModule
 {
 
 	protected $strTemplate = 'mod_grix';
@@ -31,7 +38,9 @@ class GrixBe extends \BackendModule
 
 		// include CSS & Javascripts
 
-		if (TL_MODE=='BE')
+		$request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+		if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
 		{
 			if (!isset($GLOBALS['TL_JAVASCRIPT']))
 			{
@@ -54,11 +63,11 @@ class GrixBe extends \BackendModule
 
 		// get the id of the article to edit
 		// eg. main.php ? do=grixbe & id=4 & ref=f450a0f36c3019d4030aeab540292c3d
-		$id = \Input::get('id');
+		$id = Input::get('id');
 
 
 		// if the grixBeForm has been submitted, save js and html to the database
-		if (\Input::post('FORM_SUBMIT') == 'tl_grix')
+		if (Input::post('FORM_SUBMIT') == 'tl_grix')
 		{
 			// save the frontend html
 			$strGrixHtmlFrontend = $_POST['grixHtmlFrontend'];
@@ -88,7 +97,7 @@ class GrixBe extends \BackendModule
 
 
 		// get all the CEs of this article created by contao directly
-		$objCEs = \ContentModel::findPublishedByPidAndTable($id,'tl_article');
+		$objCEs = ContentModel::findPublishedByPidAndTable($id,'tl_article');
         $arrCEs = array();
 	    if ($objCEs == null)
 	    {
@@ -112,7 +121,7 @@ class GrixBe extends \BackendModule
 		$arrCEsAll = array_unique($arrCEsAll);
 
 		// now we have all the CEs for this article
-		$objCEsAll = \ContentModel::findMultipleByIds($arrCEsAll);
+		$objCEsAll = ContentModel::findMultipleByIds($arrCEsAll);
 
 		// store all the CEs in an array
 		$arrCEsData = array();
@@ -121,7 +130,7 @@ class GrixBe extends \BackendModule
 		 	while ($objCEsAll->next())
 			{
 				$arrCE = array();
-				$arrCE['html'] = \Controller::getContentElement($objCEsAll->current(),'main');
+				$arrCE['html'] = Controller::getContentElement($objCEsAll->current(),'main');
 				$arrCE['id'] = $objCEsAll->id;
 				$arrCEsData[] = $arrCE;
 			}
@@ -156,6 +165,7 @@ class GrixBe extends \BackendModule
 		$this->Template->grixHtmlFrontend = $result->grixHtmlFrontend;
 
 
+		$this->Template->requestToken = System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue();
 
 		// get the title of the article
 		$this->Template->articleTitle = $result->title;	
@@ -171,7 +181,7 @@ class GrixBe extends \BackendModule
 		$this->Template->ces = $arrCEsData;
 
 		// form action attribute
-		$this->Template->action = ampersand(\Environment::get('request'));
+		$this->Template->action = StringUtil::ampersand(Environment::get('request'));
 
 		// lightbox data
 		$this->Template->allArticles = $this->getArticleAlias($id);
@@ -180,12 +190,12 @@ class GrixBe extends \BackendModule
 		// languages – back link
 		$this->Template->referer = $this->getReferer() . '?do=article';
 		$this->Template->button = $GLOBALS['TL_LANG']['MSC']['backBT'];
-		$this->Template->backBTTitle = specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);
+		$this->Template->backBTTitle = StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);
 
 		// languages – ui elements
-		$this->Template->submit = specialchars($GLOBALS['TL_LANG']['MSC']['save']);		
-		$this->Template->delete = specialchars($GLOBALS['TL_LANG']['tl_grix']['reset'][0]);		
-		$this->Template->lbChooseCE = specialchars($GLOBALS['TL_LANG']['tl_grix']['lbChooseCE'][0]);		
+		$this->Template->submit = StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['save']);		
+		$this->Template->delete = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_grix']['reset'][0]);		
+		$this->Template->lbChooseCE = StringUtil::specialchars($GLOBALS['TL_LANG']['tl_grix']['lbChooseCE'][0]);		
 
 		// for debugging
 		$this->Template->DbgCEsNr = $intCEsNr;
@@ -210,9 +220,14 @@ class GrixBe extends \BackendModule
 		$arrPids = array();
 		$arrAlias = array();
 
-	    $this->import('BackendUser', 'User');
+	    // $this->import('BackendUser', 'User');
 
-		if (!$this->User->isAdmin)
+		$user = BackendUser::getInstance();
+
+
+
+
+		if (!$user->isAdmin)
 		{
 			foreach ($this->User->pagemounts as $id)
 			{
