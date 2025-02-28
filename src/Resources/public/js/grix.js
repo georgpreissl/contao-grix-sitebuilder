@@ -909,7 +909,8 @@
                             };
 
                             html += "<div class='" + stClass + "' data-id='" + stNewId + "' >\
-										<div class='c_content'>";
+										<div class='c_inner'>\
+                                            <div class='c_content'>";
 
                             if (obCol.elements && obCol.elements.length > 0) {
                                 html += createBeHtmlCode(obCol.elements, level, stNewId);
@@ -924,7 +925,8 @@
 											<span class='db_info db_id'>" + stNewId + "</span>\
 											<span class='db_info db_level'>" + level + "</span>\
 										</div>\
-									</div>";
+                                    </div>\
+                                </div>";
                         }
                     }
 
@@ -964,12 +966,14 @@
                     var stClass = "x ce";
 
                     html += "<div class='" + stClass + "' data-id='" + stNewId + "' >\
-								<div class='ce_content'>" + stCeHtml + "</div>\
+								<div class='ce_content'>\
+								<div class='ce_content-el'>" + stCeHtml + "</div>\
 								<div class='menu ce_menu cf' data-id='" + stNewId + "' >\
 									<a class='btn edi_ele' title='Inhaltselement bearbeiten' ></a>\
 									<a class='btn ins_ele' title='Inhaltselement danach einfügen' ></a>\
 									<a class='btn del_ele' title='Inhaltselement aus dem Raster entfernen' ></a>\
 									<span class='db_info db_id'>" + stNewId + "</span>\
+								</div>\
 								</div>\
 								<div class='ce_mb'>" + createBeMargin(obEl) + "</div>\
 							</div>";

@@ -33,7 +33,7 @@ class GrixBe extends BackendModule
 
 	public function compile()
 	{
-
+		// include the tl_grix.php language file for later usage
 		$this->loadLanguageFile('tl_grix'); 
 
 		// include CSS & Javascripts
@@ -96,7 +96,7 @@ class GrixBe extends BackendModule
 		$intCEsUsedNr = count($arrCEsUsed);
 
 
-		// get all the CEs of this article created by contao directly
+		// get all the content elements of this article
 		$objCEs = ContentModel::findPublishedByPidAndTable($id,'tl_article');
         $arrCEs = array();
 	    if ($objCEs == null)
@@ -107,14 +107,12 @@ class GrixBe extends BackendModule
 
 	        while ($objCEs->next()) 
 	        {
-	            $objCE = $objCEs->current();
-	            $arrCEs[] = $objCE->id;
+	            $arrCEs[] = $objCEs->id;
 	        }
 	    	
 	    }
 
-
-	    // add the contao-created CEs to the collection
+	    // merge the content elements arrays
 		$arrCEsAll = array_merge($arrCEsUsed, $arrCEs);
 		
 		// delete duplicates
@@ -135,7 +133,6 @@ class GrixBe extends BackendModule
 				$arrCEsData[] = $arrCE;
 			}
 		}
-
 
 		// get all the css classes of this article
 		$objClasses = GrixCssModel::findAll();

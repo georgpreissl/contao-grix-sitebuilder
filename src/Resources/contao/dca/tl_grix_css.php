@@ -1,12 +1,13 @@
 <?php
 
+use Contao\DC_Table;
 
 $GLOBALS['TL_DCA']['tl_grix_css'] = array
 (
     // Config
     'config'   => array
     (
-        'dataContainer'               => 'Table',
+        'dataContainer'               => DC_Table::class,
         'enableVersioning'            => true,
         'sql' => array
         (
@@ -29,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_grix_css'] = array
         (
             'fields'                  => array('styleTitle', 'cssClasses'),
             'showColumns'             => true,
-            'label_callback' => function ($row, $label, DataContainer $dc, $args) {
+            'label_callback' => function ($row, $label, DC_Table $dc, $args) {
                 $args[0] = $row['styleTitle'];
 
                 return $args;

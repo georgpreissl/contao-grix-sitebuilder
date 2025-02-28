@@ -216,7 +216,7 @@
 				<?php if(!empty($this->classes)) : ?>
 					<div class="grix_lb_section grix_lb_classes">
 						<h1 class="ghl" ><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseClasses'] ?></h1>
-						<ul>
+						<ul class="grix__lb-css-list" >
 							<?php foreach ($this->classes as $arrClass) : ?>
 								<li data-alias='<?= $arrClass["alias"] ?>' title='<?= $arrClass["description"] ?>' class="grix_lb_class"><?= $arrClass["name"] ?></li>
 							<?php endforeach; ?>				
@@ -265,22 +265,26 @@
 
 				<div class="grix_lb_section grix_lb_overview">
 					<h1 class="ghl" ><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseCE'] ?></h1>
-					<?php if(!empty($this->allArticles)) : ?>
-						<div class="grix_lb_articles">
-							<span><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseArticle'] ?></span>
-							<select> 
-								<?php foreach ($this->allArticles as $t => $group): ?>
-									<optgroup label="<?= $t ?>">
-										<?php foreach ($group as $key => $value): ?>
-											<option value="<?= $key ?>"><?= $value ?></option>
-										<?php endforeach; ?>
-									</optgroup>
-								<?php endforeach; ?>
-							</select>
-						</div>
+
+					<?php if(1 == 0) : ?>
+						<?php if(!empty($this->allArticles)) : ?>
+							<div class="grix_lb_articles">
+								<span><?= $GLOBALS['TL_LANG']['tl_grix']['lbChooseArticle'] ?></span>
+								<select> 
+									<?php foreach ($this->allArticles as $t => $group): ?>
+										<optgroup label="<?= $t ?>">
+											<?php foreach ($group as $key => $value): ?>
+												<option value="<?= $key ?>"><?= $value ?></option>
+											<?php endforeach; ?>
+										</optgroup>
+									<?php endforeach; ?>
+								</select>
+							</div>
+						<?php endif; ?>
 					<?php endif; ?>
-					<div class="grix_lb_ces">
-						<ul>
+
+					<div class="grix__lb-section grix-lb-section-ce">
+						<ul class="grix__lb-ce-list" >
 							<?php foreach ($this->ces as $arrCE) : ?>
 								<li class='grix_lb_ce' data-ceid='<?= $arrCE["id"] ?>' >
 									<div class="grix_lb_ce_inner" id='grixce_<?= $arrCE["id"] ?>' >
@@ -347,7 +351,7 @@
 
 			$grixMenu = $('.grix_menu');
 			var nrGxMnTop = $grixMenu.offset().top;
-			var nrGxMnSwitch = nrGxMnTop - $('#header').height();
+			var nrGxMnSwitch = nrGxMnTop;
 			var nrGxMnLeft = $grixMenu.offset().left;
 			var nrGxMnWidth = $grixMenu.outerWidth();
 
