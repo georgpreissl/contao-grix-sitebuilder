@@ -149,7 +149,7 @@
 	<div class="grix_grid">
 	</div>
 
-	<form id="grixBeForm" action="<?= $this->action ?>" method="post">
+	<form id="grixBeForm" action="<?= $this->action ?>" method="post" data-turbo="false" >
 
 		<input type="hidden" name="FORM_SUBMIT" value="tl_grix">
 		<input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?>">

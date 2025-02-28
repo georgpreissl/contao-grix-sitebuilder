@@ -69,11 +69,14 @@
             });
 
             $('#grix_deleteAll').click(function(e) {
+                e.preventDefault();
                 arCEsUsed = [];
                 var obRow = new GrixRow();
                 obRow.addCol(new GrixCol());
-                var stJson = '[' + JSON.stringify(obRow) + ']';
-                $('#ctrl_grixJson').val(stJson);
+                var stData = '[' + JSON.stringify(obRow) + ']';
+                $('#ctrl_grixJson').val(stData);
+                obData = JSON.parse(stData);                
+                drawGrix();
             })
 
             $('.grix_device').click(function(e) {
@@ -900,7 +903,11 @@
                                     var stU = obCol[prop][dev];
                                     if (stU !== "") {
                                         if (prop == "width") {
-                                            stClass += " col-" + dev + "-" + stU;
+                                            if(dev == "xs") {
+                                                stClass += " col-" + stU;
+                                            } else {
+                                                stClass += " col-" + dev + "-" + stU;
+                                            }
                                         } else {
                                             stClass += " col-" + dev + "-" + prop + "-" + stU;
                                         };
@@ -954,9 +961,12 @@
 									<a class='btn reorder' data-dir='down' title='Reihe nach unten verschieben' ></a>\
 									<a class='btn del_row' title='Reihe löschen' ></a>\
 									<span class='db_info db_id'>" + idx + "</span>\
-								</div>\
-								<div class='ce_mb'>" + createBeMargin(obEl) + "</div>\
-							</div>";
+								</div>";
+                                var mb = createBeMargin(obEl);
+                                if(mb !== ''){
+                                    html +=	"<div class='ce_mb'>Margin: " + mb + "</div>"
+                                }
+                                html += "</div>";
                 }
 
                 // lets build a content-element
@@ -974,9 +984,12 @@
 									<a class='btn del_ele' title='Inhaltselement aus dem Raster entfernen' ></a>\
 									<span class='db_info db_id'>" + stNewId + "</span>\
 								</div>\
-								</div>\
-								<div class='ce_mb'>" + createBeMargin(obEl) + "</div>\
-							</div>";
+								</div>";
+                                var mb = createBeMargin(obEl);
+                                if(mb !== ''){
+                                    html +=	"<div class='ce_mb'>Margin: " + mb + "</div>"
+                                }
+                    html +=	"</div>";
 
                 }
 
@@ -1014,9 +1027,15 @@
                             for (var i = 0; i < arBootProps.length; i++) {
                                 var prop = arBootProps[i]
                                 for (var dev in obCol[prop]) {
+                                    // console.log(dev);
                                     var stU = obCol[prop][dev];
                                     if (stU !== "") {
                                         if (prop == "width") {
+                                            if(dev == "xs") {
+                                                stClass += " col-" + stU;
+                                            } else {
+                                                stClass += " col-" + dev + "-" + stU;
+                                            }                                            
                                             stClass += " col-" + dev + "-" + stU;
                                         } else {
                                             stClass += " col-" + dev + "-" + prop + "-" + stU;
