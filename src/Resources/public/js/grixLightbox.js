@@ -67,7 +67,7 @@
 				});
 
 				// select an CE to import it
-				$('.grix_lb').on("click", '.grix_lb_ce', function(event) { 
+				$('.grix_lb').on("click", '.grix__lb-ce', function(event) { 
 					$(this).toggleClass('selected');
 				});
 				
@@ -95,7 +95,7 @@
 					});
 
 					// collect the selected CEs
-					$('.grix_lb_ce.selected').each(function(i,el){
+					$('.grix__lb-ce.selected').each(function(i,el){
 						self.arCEchecked.push($(this).data("ceid"));
 					});
 
@@ -183,7 +183,7 @@
 				// Deselect everything
 				$('.grix-lb__unitsconf').removeClass('selected');
 				$('.grix_lb_class').removeClass('selected');
-				$('.grix_lb_ce').removeClass('selected');
+				$('.grix__lb-ce').removeClass('selected');
 
 				$('.grix_lb_unitsconf_custom').each(function(index, el) {
 					$(this).find('input').val('');

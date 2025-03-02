@@ -37,6 +37,18 @@
 			<source>Content Elements used by Grix</source>
 			<target>Von Grix verwendete Inhaltselemente</target>
 		</trans-unit>
+		<trans-unit id="tl_grix_css.published.0">
+			<source>Publish CSS style</source>
+			<target>CSS-Stil veröffentlichen</target>
+		</trans-unit>
+		<trans-unit id="tl_grix_css.published.1">
+			<source>Making the CSS style available in Grix.</source>
+			<target>Den CSS-Stil im Grix-Editor verfügbar machen.</target>
+		</trans-unit>
+      <trans-unit id="tl_grix_css.publish_legend">
+        <source>Publish settings</source>
+        <target>Veröffentlichung</target>
+      </trans-unit>			
 	</body>
 	</file>
 </xliff>

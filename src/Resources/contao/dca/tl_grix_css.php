@@ -1,6 +1,7 @@
 <?php
 
 use Contao\DC_Table;
+use Contao\DataContainer;
 
 $GLOBALS['TL_DCA']['tl_grix_css'] = array
 (
@@ -48,37 +49,22 @@ $GLOBALS['TL_DCA']['tl_grix_css'] = array
         ),
         'operations' => array
         (
-            'edit' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_grix_css']['edit'],
-                'href'                => 'act=edit',
-                'icon'                => 'edit.gif'
-            ),
-            'copy'   => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_grix_css']['copy'],
-                'href'                => 'act=paste&amp;mode=copy',
-                'icon'                => 'copy.gif',
-            ),
-            'delete' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_grix_css']['delete'],
-                'href'                => 'act=delete',
-                'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['tl_visitors_category']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"'
-            ),
-            'show' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_grix_css']['show'],
-                'href'                => 'act=show',
-                'icon'                => 'show.gif'
-            )
+			'edit',
+			'copy',
+			'delete',
+            'show',
+			'toggle' => array
+			(
+				'href'                => 'act=toggle&amp;field=published',
+				'icon'                => 'visible.svg',
+				'showInHeader'        => true
+			),            
         )
     ),
     // Palettes
     'palettes' => array
     (
-        'default' => '{style_legend},styleTitle;{css_legend},cssClasses;{description_legend},styleDescription'
+        'default' => '{style_legend},styleTitle;{css_legend},cssClasses;{description_legend},styleDescription;{publish_legend},published'
     ),
     // Fields
     'fields'   => array
@@ -116,6 +102,15 @@ $GLOBALS['TL_DCA']['tl_grix_css'] = array
             'inputType'               => 'text',
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
-        )
+        ),
+		'published' => array
+		(
+			'toggle'                  => true,
+			'filter'                  => true,
+			'flag'                    => DataContainer::SORT_INITIAL_LETTER_ASC,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('doNotCopy'=>true),
+			'sql'                     => array('type' => 'boolean', 'default' => false)
+		),        
     )
 );

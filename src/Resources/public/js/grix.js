@@ -72,7 +72,9 @@
                 e.preventDefault();
                 arCEsUsed = [];
                 var obRow = new GrixRow();
-                obRow.addCol(new GrixCol());
+                var obCol = new GrixCol();
+                obCol.setDefault();
+                obRow.addCol(obCol);
                 var stData = '[' + JSON.stringify(obRow) + ']';
                 $('#ctrl_grixJson').val(stData);
                 obData = JSON.parse(stData);                
@@ -245,7 +247,7 @@
         function insertCol(el) {
             var obRow = getTarget(el);
             var obCol = new GrixCol();
-
+            obCol.setDefault();
             // give it the width of the first column sibling
             obCol.width[device] = obRow.elements[0].width[device];
 
@@ -258,7 +260,9 @@
 
             // create a new row with one containing column
             var obRowNew = new GrixRow();
-            obRowNew.addCol(new GrixCol());
+            var obColNew = new GrixCol();
+            obColNew.setDefault();
+            obRowNew.addCol(obColNew);
 
             // insert the new row after the clicked one
             obCol.elements.splice(getIndex(el) + 1, 0, obRowNew);
@@ -315,10 +319,11 @@
                 var nrColsToCreate = nrColsNew - nrColsOld;
                 for (var i = 0; i < nrColsToCreate; i++) {
                     var obNewCol = new GrixCol();
+                    obNewCol.setDefault();
                     arCols.push(obNewCol);
                 };
             };
-
+// console.log(arCols);
             // change existing cols
             var z = 0;
             for (var i = 0; i < arCols.length; i++) {
@@ -359,7 +364,7 @@
                 },
                 async: true,
                 success: function(data, status) {
-                    console.log(data);
+                    // console.log(data);
                     // console.log("start");
                     // console.log(data.data.pageTitle);
                     // console.log(status);
@@ -419,7 +424,10 @@
             var obCol = getTarget(el);
 
             var obRow = new GrixRow();
-            obRow.addCol(new GrixCol());
+            var obColNew = new GrixCol();
+            obColNew.setDefault();
+            
+            obRow.addCol(obColNew);
 
             obCol.elements.push(obRow);
             drawGrix();
@@ -1019,6 +1027,10 @@
 
                         for (var x = 0; x < arCols.length; x++) {
                             var obCol = arCols[x];
+                            // console.log(obCol);
+                            // var testCol = new GrixCol(obCol);
+                            // var emp = new Employee(obCol);
+                            // console.log(xCol);
                             var stNewId = (id == "" ? y + "-" + x : id + "-" + y + "-" + x);
                             var stClass = "col";
                             stClass = createFeMargin(obCol, stClass);
@@ -1036,7 +1048,6 @@
                                             } else {
                                                 stClass += " col-" + dev + "-" + stU;
                                             }                                            
-                                            stClass += " col-" + dev + "-" + stU;
                                         } else {
                                             stClass += " col-" + dev + "-" + prop + "-" + stU;
                                         };

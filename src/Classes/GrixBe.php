@@ -127,15 +127,17 @@ class GrixBe extends BackendModule
 		{
 		 	while ($objCEsAll->next())
 			{
+				// dump($objCEsAll);
 				$arrCE = array();
 				$arrCE['html'] = Controller::getContentElement($objCEsAll->current(),'main');
 				$arrCE['id'] = $objCEsAll->id;
+				$arrCE['type'] = $objCEsAll->type;
 				$arrCEsData[] = $arrCE;
 			}
 		}
 
-		// get all the css classes of this article
-		$objClasses = GrixCssModel::findAll();
+		// get all the published css classes
+		$objClasses = GrixCssModel::findBy('published', 1);
 
 		// store the css classes in an array
 		$arrClasses = array();

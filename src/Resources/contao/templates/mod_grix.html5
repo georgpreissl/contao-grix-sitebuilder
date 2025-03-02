@@ -286,8 +286,12 @@
 					<div class="grix__lb-section grix-lb-section-ce">
 						<ul class="grix__lb-ce-list" >
 							<?php foreach ($this->ces as $arrCE) : ?>
-								<li class='grix_lb_ce' data-ceid='<?= $arrCE["id"] ?>' >
-									<div class="grix_lb_ce_inner" id='grixce_<?= $arrCE["id"] ?>' >
+								<li class='grix__lb-ce' data-ceid='<?= $arrCE["id"] ?>' >
+									<div class="grix__lb-ce-header" >
+										<span class="grix__lb-ce-type" ><?= $arrCE['type'] ?></span>
+										<span class="grix__lb-ce-id" >ID <?= $arrCE["id"] ?></span>
+									</div>
+									<div class="grix__lb-ce-content" id='grixce_<?= $arrCE["id"] ?>' >
 										<?= $arrCE["html"] ?>
 									</div>
 								</li>
